@@ -1,0 +1,158 @@
+---
+import { Image } from "astro:assets";
+import isotipo from "../assets/isotipo.png";
+import reconocimientoFacial from "../assets/genericos/reconocimiento-facial.png";
+import appCuidar from "../assets/genericosreconocimiento-facial.png";
+---
+
+<main id="top">
+  <section class="bg-dark-purple text-light">
+    <div
+      class="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:py-32 flex flex-col items-start gap-4"
+    >
+      <Image
+        src={isotipo}
+        alt="Isotipo de O.D.I.A."
+        class="size-48 block md:hidden mx-auto"
+      />
+
+      <div
+        class="flex items-center gap-4 md:flex-row flex-col justify-center md:justify-start md:mx-0"
+      >
+        <Image
+          src={isotipo}
+          alt="Isotipo de O.D.I.A."
+          class="size-48 md:block hidden"
+        />
+        <h1
+          class="text-[40px] sm:text-6xl font-extrabold leading-[.9] tracking-tighter font-space-mono text-light-gray text-shadow-[2px_3px_0px_var(--color-turquoise-highlight)] mx-auto mb-4"
+        >
+          <span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >O</span
+          >bservatorio de<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >D</span
+          >erecho<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >I</span
+          >nformático<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >A</span
+          >rgentino
+        </h1>
+      </div>
+      <h2 class="max-w-2xl text-3xl text-slate-300 font-merriweather mb-4">
+        Cuidamos tus
+        <span class="underline decoration-turquoise-highlight"
+          >derechos digitales</span
+        >.
+      </h2>
+    </div>
+  </section>
+
+  <section
+    class="bg-light text-dark py-12 px-4 flex flex-col items-center gap-4"
+  >
+    <p class="max-w-2xl mx-auto text-xl font-merriweather">
+      El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
+      <em
+        class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
+        >asociación civil sin fines de lucro</em
+      >
+      que fue creada con el objetivo de promover el ejercicio responsable de la ciudadanía
+      digital y garantizar que los derechos de la comunidad sean respetados.
+    </p>
+  </section>
+
+  <section class="bg-turquoise-highlight text-light">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2
+        class="text-4xl sm:text-5xl font-semibold mb-6 font-space-mono text-light text-shadow-[2px_3px_0px_var(--color-dark-purple)]"
+      >
+        Nuestro trabajo
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-4">
+          <Image
+            src={reconocimientoFacial}
+            alt="Reconocimiento facial"
+            class="w-full h-auto rounded-lg"
+          />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            Reconocimiento facial
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Desde 2019 le preguntamos al Gobierno de la Ciudad de Buenos Aires
+            por el <strong>Sistema de Reconocimiento Facial de Prófugos</strong>
+            implementados en la calle. Este sistema viola derechos básicos como la
+            presunción de inocencia y la libertad de reunión. Las respuestas de la
+            ciudad fueron sólo parciales y algunas de ellas decepcionantes, como
+            el sistema de seguridad o la calidad del reconocimiento.
+            <!-- TODO: actualizar información -->
+          </p>
+          <div class="flex justify-end">
+            <a
+              href="/casos/reconocimiento-facial"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Leer más</a
+            >
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <Image
+            src={appCuidar}
+            alt="App CUID.AR"
+            class="rounded-lg aspect-[412/177] object-cover"
+          />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            App CUID.AR
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Durante el ASPO por COVID-19 analizamos el funcionamiento de la app
+            CUID.AR y el manejo de <strong>datos personales sensibles</strong>.
+            El Gobierno informó, entre otras cosas, que almacenaba datos médicos
+            fuera del país, en aparente contradicción con la normativa vigente.
+            Logramos que se ordene borrar la base de datos de la app.
+          </p>
+          <div class="flex justify-end gap-4">
+            <a
+              href="/static/documents/respuestas-cuidar.pdf"
+              class="text-light bg-dark font-raleway border-2 border-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Ver documento</a
+            >
+            <a
+              href="/casos/app-cuidar"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Leer más</a
+            >
+          </div>
+        </div>
+        <!-- <div class="flex flex-col gap-4">
+          <Image src={isotipo} alt="LEX-100" class="w-full h-auto rounded-lg" />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            LEX-100
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Realizamos pedidos de acceso a la información sobre el sistema
+            <strong>LEX-100</strong> del Poder Judicial para conocer su estado y
+            perspectivas de mejora, con el objetivo de impulsar su modernización
+            y mayor transparencia.
+          </p>
+          <div class="flex justify-end">
+            <a
+              href="/static/documents/AIP%20-%20Lex.pdf"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Ver documento</a
+            >
+          </div> -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 text-slate-400">
+  <div class="mx-auto max-w-6xl px-4 py-8 text-sm">
+    <p>Observatorio de Derecho Informático Argentino (O.D.I.A.)</p>
+  </div>
+</footer>

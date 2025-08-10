@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+import { Image } from "astro:assets";
+import isotipo from "../assets/isotipo.png";
+---
+
+<Layout>
+  <header class="bg-dark-purple text-light border-b border-light-gray">
+    <nav
+      class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4"
+    >
+      <a href="/" class="flex items-center gap-3 group">
+        <Image src={isotipo} alt="O.D.I.A." class="w-8 h-8 rounded-sm" />
+        <span
+          class="font-space-mono text-lg tracking-tight group-hover:text-turquoise-highlight transition-colors"
+          >O.D.I.A.</span
+        >
+      </a>
+      <ul class="flex items-center gap-4 font-raleway text-sm sm:text-base">
+        <!-- <li>
+          <a
+            href="/"
+            class="px-3 py-1 rounded-md hover:bg-light-gray hover:text-dark-purple transition-colors"
+            >Inicio</a
+          >
+        </li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <slot />
+</Layout>

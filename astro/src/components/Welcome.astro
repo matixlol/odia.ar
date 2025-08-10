@@ -1,0 +1,240 @@
+---
+import { Image } from "astro:assets";
+import isotipo from "../assets/isotipo.png";
+import reconocimientoFacial from "../assets/genericos/reconocimiento-facial.png";
+import { marked } from "marked";
+
+const quienesSomosMd = `# ¿Quiénes somos?\n\nEl
+Observatorio de Derecho Informático Argentino (O.D.I.A.) es una asociación civil
+sin fines de lucro. Fue creada con el objetivo de promover el ejercicio
+responsable de la ciudadanía digital y garantizar que los derechos de la
+comunidad sean respetados.\n\nQuienes formamos parte de O.D.I.A. entendemos que
+es necesario un espacio de debate acerca de los vínculos entre las personas y lo
+digital y creemos que la ciudadanía no termina donde comienza una pantalla.
+Nuestro compromiso es investigar y actuar respecto de los derechos vulnerados
+por quienes sacan provecho del analfabetismo digital que todavía existe en gran
+parte de la sociedad. Pero no solo queremos protegerlos sino también ayudar a
+que la comunidad los conozca y comprenda.\n\nLlevar adelante esta tarea requiere
+compromiso y esfuerzo. Por eso, ante todo, O.D.I.A. es un equipo. Cuenta con más
+de 20 profesionales del mundo del derecho y de la informática, y también
+personas provenientes de diferentes ámbitos interesadas en el cruce del derecho
+y de las tecnologías de la información. La interdisciplinariedad es un eje
+central al momento de investigar con rigurosidad técnica aquellas situaciones
+derivadas del uso de nuevas tecnologías y cómo afectan nuestra vida
+cotidiana.\n\nComo parte de nuestras actividades, hacemos litigio estratégico,
+brindamos conferencias, realizamos trabajos de investigación y preparamos
+proyectos vinculados con educación para la ciudadanía en general.\n\nTe
+invitamos a debatir cuál es el mundo que hay (y que nos gustaría que exista)
+detrás de esta pantalla. ¡Sumate!`;
+const trabajoMd = `# Nuestro trabajo\n\n##
+Reconocimiento facial\n\nDesde 2019 le preguntamos al Gobierno de la Ciudad de
+Buenos Aires por el Sistema de Reconocimiento Facial de Prófugos implementados
+en la calle. Este sistema viola derechos básicos como la presunción de inocencia
+y la libertad de reunión. Las respuestas de la ciudad fueron sólo parciales y
+algunas de ellas decepcionantes, como el sistema de seguridad o la calidad del
+reconocimiento.\n\nEn base a esto iniciamos una acción para pedir la desconexión
+del sistema.\n\n## App CUID.AR\n\nDurante el Aislamiento Social Preventivo y
+Obligatorio por la epidemia de COVID-19, el Gobierno Nacional publicó la
+aplicación "CUID.AR" para monitorear el estado de salud de los ciudadanos y
+asistir en la obtención de permisos de circulación. Desde O.D.I.A. quisimos
+averiguar cómo funciona esta aplicación y cómo se guardan sus datos, que son
+considerados sensibles por su característica médica, demandando así una mayor
+protección.\n\nDecidimos preguntarle al Gobierno Nacional sobre el
+funcionamiento de este sistema, y [nos
+respondió](/static/documents/respuestas-cuidar.pdf), entre otras cosas, que
+guardaba los datos médicos sensibles en servidores fuera del país, en contra de
+lo que estipula la Ley de Protección de Datos Personales.\n\n## LEX-100\n\nEl
+sistema que usa el Poder Judicial de la Nación, llamado LEX-100, es conocido por
+su mal funcionamiento. Con el objeto de incentivar su mejora, [hicimos
+preguntas](/static/documents/AIP%20-%20Lex.pdf) para conocer su estado y su
+perspectiva a futuro.`;
+const debatesMd = `# Debates\n\n## Ciberpatrullaje\n\nEn
+abril del 2020, O.D.I.A. participó de una reunión con la Ministra de Seguridad
+de la Nación y varias otras asociaciones civiles que se dedican a la protección
+de los derechos humanos de las personas. En dicha reunión se nos invitó a
+realizar una discusión de lo que fue el primer proyecto de protocolo de
+“ciberpatrullaje” o “Protocolo para la Prevención Policial del Delito con Uso de
+Fuentes Digitales Abiertas” donde pudimos dar nuestra opinión y brindar
+recomendaciones que finalmente fueron tomadas en cuenta en el Protocolo aprobado
+por Resolución Ministerial N° 144 del 2020. Pueden ver en [este
+enlace](/static/documents/osint.pdf) nuestras recomendaciones.\n\n![Personas
+sentadas en torno a una mesa](/static/images/ciberpatrullaje.jpeg)\n\n## Civil
+Society Strategy Session on Facial Recognition Technology\n\nEn julio del 2020,
+O.D.I.A. participó del RightsCon junto a decenas de ONGs y otras organizaciones
+de la sociedad civil mediante la cual planteamos los problemas derivados del uso
+de los Sistemas de Reconocimiento Facial alrededor del mundo. Asimismo, pudimos
+brindarle nuestras preocupaciones a las empresas que proveen estas tecnologías
+bajo el argumento no solo de una moratoria en el uso de esta tecnología sino por
+la prohibición del uso de ella.\n\n![Videollamada con muchas
+personas](/static/images/civilsocialstrategy.jpeg)`;
+const colaboracionMd = `#
+Colaboración\n\n## Justicia Digital\n\nDos veces por semana nos encuentran en
+las aulas de la Facultad de Derecho de la Universidad de Buenos Aires en la
+materia Justicia Digital del Ciclo Profesional Orientado. Formando parte del
+Departamento de Sociales, la materia se vuelve un espacio de discusión y diálogo
+del derecho informático, su contexto y su implicancia política.\n\nTenemos la
+suerte de contar con invitades de lujo que gracias a su experiencia podemos
+conocer dónde estamos parados hoy y dialogar hacia dónde queremos ir. Abiertas
+las puertas a quienes quieran participar de este espacio.\n\n## Sindical
+App\n\nSindicapp es una aplicación que permite la carga de denuncias e
+información sensible para compartir con las personas que trabajan mediante
+aplicaciones. En este sentido, ODIA participó en el desarrollo una “Licencia de
+Colaboración Sindical” para asegurar la libertad y el correcto uso del
+Software.`;
+const quienesSomosHtml = marked.parse(quienesSomosMd);
+const trabajoHtml = marked.parse(trabajoMd);
+const debatesHtml = marked.parse(debatesMd);
+const colaboracionHtml = marked.parse(colaboracionMd);
+---
+
+<main id="top">
+  <section class="bg-dark-purple text-light">
+    <div
+      class="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:py-32 flex flex-col items-start gap-4"
+    >
+      <Image
+        src={isotipo}
+        alt="Isotipo de O.D.I.A."
+        class="size-48 block md:hidden mx-auto"
+      />
+
+      <div
+        class="flex items-center gap-4 md:flex-row flex-col justify-center md:justify-start md:mx-0"
+      >
+        <Image
+          src={isotipo}
+          alt="Isotipo de O.D.I.A."
+          class="size-48 md:block hidden"
+        />
+        <h1
+          class="text-[40px] sm:text-6xl font-extrabold leading-[.9] tracking-tighter font-space-mono text-light-gray text-shadow-[2px_3px_0px_var(--color-turquoise-highlight)] mx-auto mb-4"
+        >
+          <span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >O</span
+          >bservatorio de<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >D</span
+          >erecho<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >I</span
+          >nformático<br /><span
+            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+            >A</span
+          >rgentino
+        </h1>
+      </div>
+      <h2 class="max-w-2xl text-3xl text-slate-300 font-merriweather mb-4">
+        Cuidamos tus
+        <span class="underline decoration-turquoise-highlight"
+          >derechos digitales</span
+        >.
+      </h2>
+    </div>
+  </section>
+
+  <section
+    class="bg-light text-dark py-12 px-4 flex flex-col items-center gap-4"
+  >
+    <p class="max-w-2xl mx-auto text-xl font-merriweather">
+      El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
+      <em
+        class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
+        >asociación civil sin fines de lucro</em
+      >
+      que fue creada con el objetivo de promover el ejercicio responsable de la ciudadanía
+      digital y garantizar que los derechos de la comunidad sean respetados.
+    </p>
+  </section>
+
+  <section class="bg-turquoise-highlight text-light">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2
+        class="text-4xl sm:text-5xl font-semibold mb-6 font-space-mono text-light text-shadow-[2px_3px_0px_var(--color-dark-purple)]"
+      >
+        Nuestro trabajo
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-4">
+          <Image
+            src={reconocimientoFacial}
+            alt="Reconocimiento facial"
+            class="w-full h-auto rounded-lg"
+          />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            Reconocimiento facial
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Desde 2019 le preguntamos al Gobierno de la Ciudad de Buenos Aires
+            por el <strong>Sistema de Reconocimiento Facial de Prófugos</strong>
+            implementados en la calle. Este sistema viola derechos básicos como la
+            presunción de inocencia y la libertad de reunión. Las respuestas de la
+            ciudad fueron sólo parciales y algunas de ellas decepcionantes, como
+            el sistema de seguridad o la calidad del reconocimiento.
+            <!-- TODO: actualizar información -->
+          </p>
+          <div class="flex justify-end">
+            <a
+              href="/casos/reconocimiento-facial"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Leer más</a
+            >
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <Image
+            src={isotipo}
+            alt="App CUID.AR"
+            class="rounded-lg aspect-[412/177] object-cover"
+          />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            App CUID.AR
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Durante el ASPO por COVID-19 analizamos el funcionamiento de la app
+            CUID.AR y el manejo de <strong>datos personales sensibles</strong>.
+            El Gobierno informó, entre otras cosas, que almacenaba datos médicos
+            fuera del país, en aparente contradicción con la normativa vigente.
+            Logramos que se ordene borrar la base de datos de la app.
+          </p>
+          <div class="flex justify-end gap-4">
+            <a
+              href="/static/documents/respuestas-cuidar.pdf"
+              class="text-light bg-dark font-raleway border-2 border-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Ver documento</a
+            >
+            <a
+              href="/casos/app-cuidar"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Leer más</a
+            >
+          </div>
+        </div>
+        <!-- <div class="flex flex-col gap-4">
+          <Image src={isotipo} alt="LEX-100" class="w-full h-auto rounded-lg" />
+          <h3 class="text-2xl sm:text-3xl font-semibold font-raleway">
+            LEX-100
+          </h3>
+          <p class="text-lg text-light font-merriweather">
+            Realizamos pedidos de acceso a la información sobre el sistema
+            <strong>LEX-100</strong> del Poder Judicial para conocer su estado y
+            perspectivas de mejora, con el objetivo de impulsar su modernización
+            y mayor transparencia.
+          </p>
+          <div class="flex justify-end">
+            <a
+              href="/static/documents/AIP%20-%20Lex.pdf"
+              class="text-dark-purple font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-light px-5 py-2 rounded-lg inline-block text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+              >Ver documento</a
+            >
+          </div> -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 text-slate-400">
+  <div class="mx-auto max-w-6xl px-4 py-8 text-sm">
+    <p>Observatorio de Derecho Informático Argentino (O.D.I.A.)</p>
+  </div>
+</footer>

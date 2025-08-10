@@ -1,0 +1,59 @@
+---
+import CasosLayout from "../../layouts/CasosLayout.astro";
+import appCuidar from "../../assets/genericos/app-cuidar.png";
+import { Image } from "astro:assets";
+---
+
+<CasosLayout>
+  <main class="bg-light text-dark">
+    <section class="bg-dark-purple text-light">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <h1
+          class="text-4xl sm:text-6xl font-extrabold tracking-tight font-merriweather"
+        >
+          App CUID.AR
+        </h1>
+        <p class="mt-4 max-w-3xl text-lg text-slate-300 font-merriweather">
+          Análisis del funcionamiento y resguardo de datos personales sensibles
+          en la app CUID.AR durante la pandemia de COVID-19.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <div class="grid grid-cols-1 gap-6">
+        <Image src={appCuidar} alt="CUID.AR" class="w-full h-auto rounded-lg" />
+        <div class="prose prose-invert max-w-none font-merriweather text-lg">
+          <p>
+            Solicitamos información pública y obtuvimos respuestas oficiales
+            sobre la app, incluyendo almacenamiento de datos fuera del país.
+          </p>
+          <p>
+            En junio de 2024, la Cámara en lo Contencioso Administrativo Federal
+            ordenó al Ministerio de Salud el <strong>borrado integral</strong> de
+            las bases de datos de la app CUID.AR. Ver cobertura periodística:
+            <a
+              class="underline decoration-turquoise-highlight"
+              href="https://www.infobae.com/judiciales/2024/06/10/la-justicia-le-ordeno-al-gobierno-nacional-borrar-la-bases-de-datos-de-la-aplicacion-cuidar-que-se-utilizo-en-la-pandemia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              La Justicia le ordenó al gobierno nacional borrar la base de datos
+              de la aplicación CUID.AR
+            </a>.
+          </p>
+          <p>
+            Documento de respuestas oficiales:
+            <a
+              class="underline decoration-turquoise-highlight"
+              href="/static/documents/respuestas-cuidar.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >/static/documents/respuestas-cuidar.pdf</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</CasosLayout>

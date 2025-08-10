@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-raleway: "Raleway", sans-serif;
+  --font-merriweather: "Merriweather", serif;
+  --font-space-mono: "Space Mono", monospace;
+
+  --color-light: #feead1;
+  --color-dark: #333333;
+  --color-dark-purple: #403136;
+  --color-red-highlight: #ce342c;
+  --color-turquoise-highlight: #007a83;
+  --color-light-gray: #bdd2ce;
+
+  --text-shadow-sexy: 2px 3px 0px var(--color-dark);
+}
