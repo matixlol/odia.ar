@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+type Outlet = "cels" | "chequeado" | "via-libre";
+interface Props {
+  href: string;
+  title: string;
+  outlet: Outlet;
+}
+
+const { href, title, outlet } = Astro.props as Props;
+
+const LOGOS = {
+  cels: {
+    icon: "https://www.google.com/s2/favicons?sz=128&domain=cels.org.ar",
+    text: "CELS",
+  },
+  chequeado: {
+    icon: await import("./logos/chequeado.svg").then((m) => m.default),
+  },
+  "via-libre": {
+    icon: await import("./logos/via-libre.png").then((m) => m.default),
+  },
+};
+
+console.log(LOGOS[outlet]);
+
+const logoSrc = LOGOS[outlet].icon;
+---
+
+<a
+  href={href}
+  class="block rounded-md transition-colors no-underline"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="grid grid-cols-[64px,1fr] gap-4 py-4 sm:grid-cols-[80px,1fr]">
+    <div class="min-w-0">
+      <div
+        class="text-2xl tracking-wide text-black font-space-mono flex items-center gap-2 mb-2"
+      >
+        {
+          typeof logoSrc === "string" ? (
+            <img
+              src={logoSrc}
+              alt={outlet + " logo"}
+              class="h-8"
+              loading="lazy"
+            />
+          ) : (
+            <Image
+              src={logoSrc}
+              alt={outlet + " logo"}
+              class="h-8 w-auto"
+              loading="lazy"
+            />
+          )
+        }
+        {
+          "text" in LOGOS[outlet] && (
+            <span class="font-sans font-bold">{LOGOS[outlet].text}</span>
+          )
+        }
+      </div>
+      <div
+        class="mt-1 text-2xl sm:text-3xl leading-snug font-extrabold text-dark font-merriweather"
+      >
+        {title}
+      </div>
+    </div>
+  </div>
+</a>

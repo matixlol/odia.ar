@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import reconocimientoFacial from "../../assets/genericos/reconocimiento-facial.png";
 import Timeline from "../../components/Timeline.astro";
 import TimelineEvent from "../../components/TimelineEvent.astro";
+import MediaAppearance from "../../components/MediaAppearance.astro";
 ---
 
 <CasosLayout title="Sistema de Reconocimiento Facial">
@@ -52,47 +53,31 @@ import TimelineEvent from "../../components/TimelineEvent.astro";
       >
         Recursos y cobertura
       </h2>
-      <ul class="list-disc pl-6 space-y-3 text-lg font-merriweather">
-        <li>
-          <a
-            href="https://chequeado.com/el-explicador/porque-se-suspendio-el-sistema-de-reconocimiento-facial-de-la-ciudad-de-buenos-aires/"
-            class="underline decoration-turquoise-highlight"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Por qué se suspendió el sistema de reconocimiento facial de la
-            Ciudad de Buenos Aires — Chequeado</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.vialibre.org.ar/comunicado-de-prensa-el-reconocimiento-facial-sigue-suspendido-en-buenos-aires/"
-            class="underline decoration-turquoise-highlight"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Comunicado de prensa: El reconocimiento facial sigue suspendido en
-            Buenos Aires — Fundación Vía Libre</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.cels.org.ar/web/2022/07/uso-ilegal-del-sistema-de-reconocimiento-facial-en-caba-a-pedido-del-gobierno-de-la-ciudad-el-tsj-saco-al-juez-de-la-causa/"
-            class="underline decoration-turquoise-highlight"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Uso ilegal del sistema de reconocimiento facial en CABA — CELS</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.cels.org.ar/web/2022/04/el-ministerio-de-seguridad-de-la-ciudad-busco-informacion-biometrica-de-7-millones-de-personas-de-manera-ilegal/"
-            class="underline decoration-turquoise-highlight"
-            target="_blank"
-            rel="noopener noreferrer"
-            >El Ministerio de Seguridad de la Ciudad buscó información
-            biométrica de 7 millones de personas de manera ilegal — CELS</a
-          >
-        </li>
-      </ul>
+      <div class="grid grid-cols-1 gap-4">
+        <MediaAppearance
+          href="https://chequeado.com/el-explicador/porque-se-suspendio-el-sistema-de-reconocimiento-facial-de-la-ciudad-de-buenos-aires/"
+          title="Por qué se suspendió el sistema de reconocimiento facial de la Ciudad de Buenos Aires"
+          outlet="chequeado"
+        />
+
+        <MediaAppearance
+          href="https://www.vialibre.org.ar/comunicado-de-prensa-el-reconocimiento-facial-sigue-suspendido-en-buenos-aires/"
+          title="El reconocimiento facial sigue suspendido en Buenos Aires"
+          outlet="via-libre"
+        />
+
+        <MediaAppearance
+          href="https://www.cels.org.ar/web/2022/07/uso-ilegal-del-sistema-de-reconocimiento-facial-en-caba-a-pedido-del-gobierno-de-la-ciudad-el-tsj-saco-al-juez-de-la-causa/"
+          title="Uso ilegal del sistema de reconocimiento facial en CABA: a pedido del Gobierno de la Ciudad, el TSJ sacó al juez de la causa"
+          outlet="cels"
+        />
+
+        <MediaAppearance
+          href="https://www.cels.org.ar/web/2022/04/el-ministerio-de-seguridad-de-la-ciudad-busco-informacion-biometrica-de-7-millones-de-personas-de-manera-ilegal/"
+          title="El Ministerio de Seguridad de la Ciudad buscó información biométrica de 7 millones de personas de manera ilegal"
+          outlet="cels"
+        />
+      </div>
     </section>
 
     <!-- TODO: linea de tiempo -->
