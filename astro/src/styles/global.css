@@ -20,3 +20,8 @@
 @view-transition {
   navigation: auto;
 }
+
+.font-redaction-20 {
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+}
