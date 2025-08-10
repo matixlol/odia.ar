@@ -29,6 +29,7 @@ export async function getStaticPaths() {
       <header class="flex flex-col gap-3">
         <h1
           class="text-4xl sm:text-5xl font-extrabold font-raleway text-dark-purple"
+          transition:name={`${post.slug}-title`}
         >
           {post.data.title}
         </h1>
@@ -48,6 +49,7 @@ export async function getStaticPaths() {
               alt={post.data.title}
               class="w-full h-auto rounded-lg shadow-md"
               loading="eager"
+              transition:name={`${post.slug}-image`}
             />
           )
         }

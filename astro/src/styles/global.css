@@ -15,3 +15,7 @@
 
   --text-shadow-sexy: 2px 3px 0px var(--color-dark);
 }
+
+@view-transition {
+  navigation: auto;
+}
