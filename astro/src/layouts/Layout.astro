@@ -24,12 +24,9 @@ const DESCRIPTION =
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Observatorio de Derecho Informático Argentino</title>
-    <meta name="description" content="" />
     <SEO
-      title="Observatorio de Derecho Informático Argentino"
+      title={title}
       description="Ámbito de intercambio y aprendizaje mutuo entre abogades e informátiques."
-      twitter={{ creator: "@odiaasoc" }}
       openGraph={{
         basic: {
           title: title,
@@ -39,7 +36,15 @@ const DESCRIPTION =
         },
         optional: {
           description: DESCRIPTION,
+          siteName: "O.D.I.A.",
         },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        creator: "@odiaasoc",
+        title: title,
+        description: DESCRIPTION,
+        image: openGraphImageUrl,
       }}
     />
     <AstroFont
