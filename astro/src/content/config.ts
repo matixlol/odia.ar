@@ -12,6 +12,18 @@ const blog = defineCollection({
     }),
 });
 
+const casos = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      cover: image().optional(),
+      draft: z.boolean().default(false),
+    }),
+});
+
 export const collections = {
   blog,
+  casos,
 };

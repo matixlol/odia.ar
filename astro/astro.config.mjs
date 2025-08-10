@@ -9,6 +9,7 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 import { brandedLogo } from "./src/opengraph";
 
 import icon from "astro-icon";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,6 +33,7 @@ export default defineConfig({
   },
 
   integrations: [
+    mdx(),
     opengraphImages({
       options: {
         fonts: [

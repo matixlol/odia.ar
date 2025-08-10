@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import NavBar from "../../components/NavBar.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const { slug } = Astro.params;
+const entries: CollectionEntry<"casos">[] = await getCollection(
+  "casos",
+  ({ data }) => !data.draft
+);
+const entry = entries.find((p) => p.slug === slug);
+
+if (!entry) {
+  throw new Error(`Caso no encontrado: ${slug}`);
+}
+
+const { Content } = await entry.render();
+export async function getStaticPaths() {
+  const all = await getCollection("casos");
+  return all.map((p) => ({ params: { slug: p.slug } }));
+}
+---
+
+<Layout title={entry.data.title}>
+  <NavBar />
+  <main class="bg-light text-dark">
+    <header class="bg-dark-purple text-light">
+      <div
+        class="mx-auto py-16 max-w-6xl px-8 flex flex-col justify-between gap-4 md:flex-row"
+      >
+        <div class="max-w-xl">
+          <h1
+            class="text-4xl sm:text-6xl font-extrabold tracking-tight font-merriweather"
+            transition:name={`${entry.slug}-title`}
+          >
+            {entry.data.title}
+          </h1>
+          <p class="mt-4 text-lg text-slate-300 font-merriweather">
+            {entry.data.description}
+          </p>
+        </div>
+        {
+          entry.data.cover && (
+            <Image
+              src={entry.data.cover}
+              alt={entry.data.title}
+              class="w-auto h-64 rounded-lg shadow-md object-cover aspect-video"
+              loading="eager"
+              transition:name={`${entry.slug}-image`}
+            />
+          )
+        }
+      </div>
+    </header>
+    <article class="mx-auto max-w-3xl px-4 py-10 flex flex-col gap-6">
+      <div class="prose prose-neutral !max-w-none">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
