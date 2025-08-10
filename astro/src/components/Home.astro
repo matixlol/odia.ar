@@ -5,6 +5,7 @@ import reconocimientoFacial from "../assets/genericos/reconocimiento-facial.png"
 import appCuidar from "../assets/genericos/app-cuidar.png";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogCard from "./BlogCard.astro";
+import derechoAscii from "../assets/derecho-ascii.png";
 
 const latestPosts: CollectionEntry<"blog">[] = (
   await getCollection("blog", ({ data }) => !data.draft)
@@ -65,9 +66,16 @@ const latestPosts: CollectionEntry<"blog">[] = (
   </section>
 
   <section
-    class="bg-light text-dark py-12 px-4 flex flex-col items-center gap-4"
+    class="bg-light text-dark grid grid-cols-1 md:grid-cols-2 items-center"
   >
-    <p class="max-w-2xl mx-auto text-xl font-merriweather">
+    <Image
+      src={derechoAscii}
+      alt="Derecho ASCII"
+      class="w-full h-full object-cover aspect-[120/67]"
+    />
+    <p
+      class="max-w-2xl mx-auto text-xl font-merriweather py-12 px-4 md:text-2xl leading-normal"
+    >
       El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
       <em
         class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
