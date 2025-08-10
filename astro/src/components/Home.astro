@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import isotipo from "../assets/isotipo.png";
-import reconocimientoFacial from "../assets/genericos/reconocimiento-facial.png";
-import appCuidar from "../assets/genericos/app-cuidar.png";
+import beer from "../assets/genericos/beer.png";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 import derechoAscii from "../assets/derecho-ascii.png";
@@ -17,51 +16,64 @@ const latestPosts: CollectionEntry<"blog">[] = (
 
 <main id="top">
   <section class="bg-dark-purple text-light">
-    <div
-      class="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:py-32 flex flex-col items-start gap-4"
-    >
-      <Image
-        src={isotipo}
-        alt="Isotipo de O.D.I.A."
-        class="size-48 block md:hidden mx-auto"
-        loading="eager"
-        transition:name="isotipo"
-      />
-
+    <div class="flex justify-evenly flex-col md:flex-row">
       <div
-        class="flex items-center gap-4 md:flex-row flex-col justify-center md:justify-start md:mx-0"
+        class="max-w-6xl px-4 pb-12 pt-8 sm:py-32 flex flex-col items-start gap-4"
       >
         <Image
           src={isotipo}
           alt="Isotipo de O.D.I.A."
-          class="size-48 md:block hidden"
+          class="size-48 block md:hidden mx-auto"
           loading="eager"
           transition:name="isotipo"
         />
-        <h1
-          class="text-[40px] sm:text-6xl font-extrabold leading-[1] tracking-tight font-redaction-20 text-light-gray text-shadow-[2px_3px_0px_var(--color-turquoise-highlight)] mx-auto mb-4"
+
+        <div
+          class="flex items-center gap-4 md:flex-row flex-col justify-center md:justify-start md:mx-0"
         >
-          <span
-            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
-            >O</span
-          >bservatorio de<br /><span
-            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
-            >D</span
-          >erecho<br /><span
-            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
-            >I</span
-          >nformático<br /><span
-            class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
-            >A</span
-          >rgentino
-        </h1>
+          <Image
+            src={isotipo}
+            alt="Isotipo de O.D.I.A."
+            class="size-48 md:block hidden"
+            loading="eager"
+            transition:name="isotipo"
+          />
+          <h1
+            class="text-[40px] sm:text-6xl font-extrabold leading-[1] tracking-tight font-redaction-20 text-light-gray text-shadow-[2px_3px_0px_var(--color-turquoise-highlight)] mx-auto mb-4"
+          >
+            <span
+              class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+              >O</span
+            >bservatorio de<br /><span
+              class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+              >D</span
+            >erecho<br /><span
+              class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+              >I</span
+            >nformático<br /><span
+              class="text-turquoise-highlight text-shadow-sexy text-shadow-light-gray"
+              >A</span
+            >rgentino
+          </h1>
+        </div>
+        <h2 class="max-w-2xl text-3xl text-slate-300 font-merriweather mb-4">
+          Cuidamos tus
+          <span class="underline decoration-turquoise-highlight"
+            >derechos digitales</span
+          >.
+        </h2>
       </div>
-      <h2 class="max-w-2xl text-3xl text-slate-300 font-merriweather mb-4">
-        Cuidamos tus
-        <span class="underline decoration-turquoise-highlight"
-          >derechos digitales</span
-        >.
-      </h2>
+      <div class="flex flex-col gap-4 items-center justify-center md:pr-24">
+        <a
+          href="/donar"
+          class="flex flex-row gap-2 text-4xl scale-300 transition-all duration-300"
+          transition:name="beers"
+        >
+          <span class="translate-x-8 -rotate-12">🍺</span>
+          <span class="translate-y-4 z-10">🍺</span>
+          <span class="-translate-x-8 rotate-12">🍺</span>
+        </a>
+      </div>
     </div>
   </section>
 

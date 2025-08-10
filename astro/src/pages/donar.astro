@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import ballmerPeakChart from "../assets/genericos/ballmer-peak-chart.png";
+---
+
+<Layout title="Donar">
+  <div
+    class="flex flex-col gap-4 bg-dark-purple text-light py-16 px-8 items-center justify-center"
+  >
+    <div class="flex flex-col gap-8 max-w-2xl">
+      <h1
+        class="text-[60px] font-bold font-redaction-20 flex flex-row gap-6 text-shadow-sexy text-shadow-turquoise-highlight"
+      >
+        Tres birras.
+        <div
+          class="flex flex-row gap-2 text-4xl scale-200 translate-y-[50%] text-shadow-none"
+          transition:name="beers"
+        >
+          <span class="translate-x-8 -rotate-12">🍺</span>
+          <span class="translate-y-4 z-10">🍺</span>
+          <span class="-translate-x-8 rotate-12">🍺</span>
+        </div>
+      </h1>
+      <p class="text-2xl font-merriweather">
+        Nuestros estudios demuestran que
+        <em class="not-italic underline decoration-light-gray decoration-wavy"
+          >tres birras</em
+        >
+        son la cantidad exacta para el funcionamiento óptimo de los miembros de O.D.I.A.
+      </p>
+
+      <Image
+        src={ballmerPeakChart}
+        alt="Gráfico que muestra la capacidad de programación en función del nivel de alcohol en sangre, con un pico óptimo alrededor del 0.1296%"
+      />
+
+      <p class="text-2xl font-merriweather">
+        Si querés ayudarnos a seguir trabajando en favor de los derechos
+        digitales, podes colaborar pagandonos tres birras por mes.
+      </p>
+      <a
+        href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084950cbacf019515ab4b6603fc"
+        class="bg-turquoise-highlight text-light font-bold text-4xl py-6 px-12 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-center font-redaction-20 text-shadow-sexy text-shadow-dark hover:text-shadow-none"
+      >
+        Suscribite con MercadoPago
+      </a>
+    </div>
+  </div>
+</Layout>
