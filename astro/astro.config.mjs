@@ -8,6 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 import opengraphImages, { presets } from "astro-opengraph-images";
 import { brandedLogo } from "./src/opengraph";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://odia.ar",
@@ -45,5 +47,6 @@ export default defineConfig({
       },
       render: brandedLogo,
     }),
+    icon(),
   ],
 });
