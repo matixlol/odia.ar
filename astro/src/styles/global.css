@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-raleway: "Raleway", sans-serif;
-  --font-merriweather: "Merriweather", serif;
+  --font-raleway: "Raleway Variable", sans-serif;
+  --font-merriweather: "Merriweather Variable", serif;
   --font-space-mono: "Space Mono", monospace;
 
   --color-light: #feead1;

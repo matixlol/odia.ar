@@ -14,18 +14,24 @@ importers:
       '@fontsource-variable/merriweather':
         specifier: ^5.2.4
         version: 5.2.4
+      '@fontsource-variable/raleway':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/merriweather':
         specifier: ^5.2.9
         version: 5.2.9
+      '@fontsource/redaction-20':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/space-mono':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@tailwindcss/vite':
         specifier: ^4.1.11
         version: 4.1.11(vite@6.3.5(@types/node@24.2.1)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1))
       astro:
         specifier: ^5.12.9
         version: 5.12.9(@types/node@24.2.1)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.1)
-      astro-font:
-        specifier: ^1.1.0
-        version: 1.1.0
       astro-opengraph-images:
         specifier: ^1.13.1
         version: 1.13.1(tw-to-css@0.0.12)
@@ -348,8 +354,17 @@ packages:
   '@fontsource-variable/merriweather@5.2.4':
     resolution: {integrity: sha512-yIEZy+RLRn1wbr4PTlwu0pi1zYAd6z+t4nloP/r164WPjsL6HXL06xUVsnZYA7/f5Fa1OuoU+6EA3sJsZXYO7A==}
 
+  '@fontsource-variable/raleway@5.2.6':
+    resolution: {integrity: sha512-C3HhxprSw+hMNtYJcZBadKvskuVIq35qS8QwVUhFvZciILd6YuOW41pRY2e8jDpcb5TZVQFrwcRi81cgPLfg1g==}
+
   '@fontsource/merriweather@5.2.9':
     resolution: {integrity: sha512-amd5Wp7BM5U0HE/FUgsJmf/dvfqSKYf55HrxR1tMlpT3BqQmVZHB9RJDBpNqqf3/yF6fkryCbx5H9fEMa4mY3g==}
+
+  '@fontsource/redaction-20@5.2.5':
+    resolution: {integrity: sha512-sshbJ87SQL1NbwDxQMYdAKOFhm5ydsZU7FyMhnesfhVaVPsahyy4QOlMcsRMyWGQMayXyCWbCEu1wHgwlmC2mg==}
+
+  '@fontsource/space-mono@5.2.8':
+    resolution: {integrity: sha512-25X0fg1+kxxLes9/c6AozhrrAuBW1uLaOL584IRg4DZxVxNOMzcS3mHS1UtmsyTwtU2HpiIt9Kv23Q+7xQO+hg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -978,9 +993,6 @@ packages:
 
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
-
-  astro-font@1.1.0:
-    resolution: {integrity: sha512-hj1A0MkaJTeaArBpf1m9s4Nxu1Bn9h0QiEPeR9Dfjle25pT4CH4higzuadWzCRSvhGO2SzbM11YwZEF+cmLDxg==}
 
   astro-opengraph-images@1.13.1:
     resolution: {integrity: sha512-HOuyiQzYKpixGRI48ZHIsn5YeXj6C4bmwUNEjlYEHDrYhfBteCi8ypSdZf+Sqa5il/zEuIJA3vBYJMGgPKp+XQ==}
@@ -3031,7 +3043,13 @@ snapshots:
 
   '@fontsource-variable/merriweather@5.2.4': {}
 
+  '@fontsource-variable/raleway@5.2.6': {}
+
   '@fontsource/merriweather@5.2.9': {}
+
+  '@fontsource/redaction-20@5.2.5': {}
+
+  '@fontsource/space-mono@5.2.8': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -3580,8 +3598,6 @@ snapshots:
   aria-query@5.3.2: {}
 
   array-iterate@2.0.1: {}
-
-  astro-font@1.1.0: {}
 
   astro-opengraph-images@1.13.1(tw-to-css@0.0.12):
     dependencies:

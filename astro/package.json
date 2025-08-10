@@ -11,10 +11,12 @@
   "dependencies": {
     "@astrojs/vercel": "^8.2.5",
     "@fontsource-variable/merriweather": "^5.2.4",
+    "@fontsource-variable/raleway": "^5.2.6",
     "@fontsource/merriweather": "^5.2.9",
+    "@fontsource/redaction-20": "^5.2.5",
+    "@fontsource/space-mono": "^5.2.8",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.9",
-    "astro-font": "^1.1.0",
     "astro-opengraph-images": "^1.13.1",
     "astro-seo": "^0.8.4",
     "marked": "^12.0.2",

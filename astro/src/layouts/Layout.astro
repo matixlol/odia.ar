@@ -1,9 +1,14 @@
 ---
 import "../styles/global.css";
-import { AstroFont } from "astro-font";
 import { SEO } from "astro-seo";
 import { getImagePath } from "astro-opengraph-images";
 import Footer from "../components/Footer.astro";
+
+import "@fontsource-variable/merriweather";
+import "@fontsource/space-mono";
+import "@fontsource-variable/raleway";
+
+import merriweatherWoff from "@fontsource-variable/merriweather/files/merriweather-latin-wght-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -47,40 +52,12 @@ const DESCRIPTION =
         image: openGraphImageUrl,
       }}
     />
-    <AstroFont
-      config={[
-        {
-          name: "Raleway",
-          src: [
-            {
-              style: "bold",
-              weight: "700",
-              path: "https://fonts.gstatic.com/s/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pbCIPrEVIT9d0c8.woff2",
-            },
-          ],
-          preload: true,
-          display: "swap",
-          fallback: "sans-serif",
-        },
-        {
-          name: "Merriweather",
-          src: [],
-          googleFontsURL:
-            "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300..900;1,300..900&display=swap",
-          preload: true,
-          display: "swap",
-          fallback: "sans-serif",
-        },
-        {
-          name: "Space Mono",
-          src: [],
-          googleFontsURL:
-            "https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
-          preload: true,
-          display: "swap",
-          fallback: "monospace",
-        },
-      ]}
+    <link
+      rel="preload"
+      href={merriweatherWoff}
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
   </head>
   <body>
