@@ -8,6 +8,8 @@ import "@fontsource-variable/merriweather";
 import "@fontsource/space-mono";
 import "@fontsource-variable/raleway";
 
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 import merriweatherWoff from "@fontsource-variable/merriweather/files/merriweather-latin-wght-normal.woff2?url";
 
 interface Props {
@@ -63,6 +65,7 @@ const DESCRIPTION =
   <body>
     <slot />
     <Footer />
+    <SpeedInsights />
   </body>
 </html>
 

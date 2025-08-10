@@ -16,6 +16,7 @@
     "@fontsource/redaction-20": "^5.2.5",
     "@fontsource/space-mono": "^5.2.8",
     "@tailwindcss/vite": "^4.1.11",
+    "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.12.9",
     "astro-opengraph-images": "^1.13.1",
     "astro-seo": "^0.8.4",
