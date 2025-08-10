@@ -2,6 +2,8 @@
 import CasosLayout from "../../layouts/CasosLayout.astro";
 import { Image } from "astro:assets";
 import reconocimientoFacial from "../../assets/genericos/reconocimiento-facial.png";
+import Timeline from "../../components/Timeline.astro";
+import TimelineEvent from "../../components/TimelineEvent.astro";
 ---
 
 <CasosLayout title="Sistema de Reconocimiento Facial">
@@ -91,5 +93,36 @@ import reconocimientoFacial from "../../assets/genericos/reconocimiento-facial.p
         </li>
       </ul>
     </section>
+
+    <!-- TODO: linea de tiempo -->
+    <!-- <section class="mx-auto max-w-6xl px-4 pb-16">
+      <Timeline title="Línea de tiempo">
+        <TimelineEvent
+          title="Primeras solicitudes de información"
+          moment="2019"
+          image={{ src: reconocimientoFacial, alt: "Reconocimiento facial" }}
+        >
+          <p>
+            Pedimos detalles técnicos, contratos y evaluación de impacto sobre
+            el Sistema de Reconocimiento Facial de Prófugos.
+          </p>
+        </TimelineEvent>
+        <TimelineEvent
+          title="Investigaciones y medidas judiciales"
+          moment="2022"
+        >
+          <p>
+            Se documentaron búsquedas masivas de datos biométricos y se
+            impulsaron medidas para suspender el sistema.
+          </p>
+        </TimelineEvent>
+        <TimelineEvent title="Seguimiento y transparencia" moment="2023–2024">
+          <p>
+            Continuamos con monitoreo, publicaciones y pedidos de transparencia,
+            mientras el sistema permanece suspendido.
+          </p>
+        </TimelineEvent>
+      </Timeline>
+    </section> -->
   </main>
 </CasosLayout>

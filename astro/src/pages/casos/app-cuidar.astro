@@ -2,6 +2,8 @@
 import CasosLayout from "../../layouts/CasosLayout.astro";
 import appCuidar from "../../assets/genericos/app-cuidar.png";
 import { Image } from "astro:assets";
+import Timeline from "../../components/Timeline.astro";
+import TimelineEvent from "../../components/TimelineEvent.astro";
 ---
 
 <CasosLayout title="App CUID.AR">
@@ -55,5 +57,36 @@ import { Image } from "astro:assets";
         </div>
       </div>
     </section>
+
+    <!-- TODO: linea de tiempo -->
+    <!-- <section class="mx-auto max-w-6xl px-4 pb-16">
+      <Timeline title="Línea de tiempo">
+        <TimelineEvent
+          title="Solicitud de información pública"
+          moment="2020"
+          image={{ src: appCuidar, alt: "App CUID.AR" }}
+        >
+          <p>
+            Iniciamos pedidos de acceso a información pública para conocer
+            proveedores, infraestructura y resguardo de datos de la app.
+          </p>
+        </TimelineEvent>
+        <TimelineEvent title="Respuestas oficiales" moment="2021">
+          <p>
+            Recibimos documentación oficial indicando almacenamiento de datos en
+            infraestructura fuera del país.
+          </p>
+        </TimelineEvent>
+        <TimelineEvent
+          title="Orden judicial de borrado integral"
+          moment="Junio 2024"
+        >
+          <p>
+            La Cámara en lo Contencioso Administrativo Federal ordenó el borrado
+            integral de las bases de datos de CUID.AR.
+          </p>
+        </TimelineEvent>
+      </Timeline>
+    </section> -->
   </main>
 </CasosLayout>

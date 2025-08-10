@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  moment: string; // date/time string
+  image?: {
+    src: ImageMetadata | string;
+    alt?: string;
+  };
+}
+
+const { title, moment, image } = Astro.props as Props;
+---
+
+<li class="relative">
+  <span
+    class="absolute -left-[32px] top-1 h-4 w-4 rounded-full bg-turquoise-highlight ring-4 ring-light"
+  ></span>
+  <div class="grid grid-cols-1 md:grid-cols-[1fr,220px] md:gap-6">
+    <div>
+      <div
+        class="text-sm uppercase tracking-wide text-dark-purple/80 font-space-mono"
+      >
+        {moment}
+      </div>
+      <h3 class="mt-1 text-2xl font-bold font-merriweather text-dark">
+        {title}
+      </h3>
+      <div class="prose max-w-none font-merriweather text-dark">
+        <slot />
+      </div>
+    </div>
+    {
+      image && (
+        <div class="mt-4 md:mt-0">
+          {typeof image.src === "string" ? (
+            <img
+              src={image.src}
+              alt={image.alt ?? ""}
+              class="w-full max-w-[220px] h-auto rounded-lg shadow-sm"
+            />
+          ) : (
+            <Image
+              src={image.src}
+              alt={image.alt ?? ""}
+              class="w-full max-w-[220px] h-auto rounded-lg shadow-sm"
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
+</li>

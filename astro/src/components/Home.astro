@@ -3,6 +3,14 @@ import { Image } from "astro:assets";
 import isotipo from "../assets/isotipo.png";
 import reconocimientoFacial from "../assets/genericos/reconocimiento-facial.png";
 import appCuidar from "../assets/genericos/app-cuidar.png";
+import { getCollection, type CollectionEntry } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+const latestPosts: CollectionEntry<"blog">[] = (
+  await getCollection("blog", ({ data }) => !data.draft)
+)
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .slice(0, 3);
 ---
 
 <main id="top">
@@ -165,6 +173,27 @@ import appCuidar from "../assets/genericos/app-cuidar.png";
         Sociales, la materia se vuelve un espacio de discusión y diálogo del
         derecho informático, su contexto y su implicancia política.
       </p>
+    </div>
+  </section>
+
+  <section class="bg-light text-dark">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2
+        class="text-4xl sm:text-5xl font-semibold mb-6 font-space-mono text-dark-purple"
+      >
+        Novedades
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {latestPosts.map((post) => <BlogCard post={post} />)}
+      </div>
+      <div class="mt-8 flex justify-end">
+        <a
+          href="/blog/"
+          class="text-light font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-dark px-5 py-2 rounded-lg inline-block text-xl md:text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+        >
+          Ver todas las novedades
+        </a>
+      </div>
     </div>
   </section>
 </main>

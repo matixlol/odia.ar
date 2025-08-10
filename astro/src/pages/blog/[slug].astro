@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import NavBar from "../../components/NavBar.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const { slug } = Astro.params;
+const posts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+const post = posts.find((p) => p.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const { Content } = await post.render();
+export async function getStaticPaths() {
+  const all = await getCollection("blog");
+  return all.map((p) => ({ params: { slug: p.slug } }));
+}
+---
+
+<Layout title={post.data.title}>
+  <NavBar />
+  <main class="bg-light text-dark">
+    <article class="mx-auto max-w-3xl px-4 py-10 flex flex-col gap-6">
+      <header class="flex flex-col gap-3">
+        <h1
+          class="text-4xl sm:text-5xl font-extrabold font-raleway text-dark-purple"
+        >
+          {post.data.title}
+        </h1>
+        <p class="text-sm text-dark/70">
+          {
+            new Date(post.data.date).toLocaleDateString("es-AR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </p>
+        {
+          post.data.cover && (
+            <Image
+              src={post.data.cover}
+              alt={post.data.title}
+              class="w-full h-auto rounded-lg shadow-md"
+              loading="eager"
+            />
+          )
+        }
+      </header>
+
+      <div class="prose prose-invert:unset prose-slate max-w-none">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>

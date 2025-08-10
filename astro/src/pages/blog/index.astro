@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import BlogCard from "../../components/BlogCard.astro";
+import NavBar from "../../components/NavBar.astro";
+
+const posts: CollectionEntry<"blog">[] = (
+  await getCollection("blog", ({ data }) => !data.draft)
+).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+---
+
+<Layout title="Novedades">
+  <NavBar />
+  <main class="bg-light text-dark">
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <h1
+        class="text-4xl sm:text-5xl font-semibold mb-6 font-space-mono text-dark-purple"
+      >
+        Novedades
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => <BlogCard post={post} />)}
+      </div>
+    </section>
+  </main>
+</Layout>
