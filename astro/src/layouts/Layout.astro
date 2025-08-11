@@ -7,12 +7,12 @@ import Footer from "../components/Footer.astro";
 import "@fontsource-variable/merriweather";
 import "@fontsource/space-mono";
 import "@fontsource-variable/raleway";
-import "@fontsource/redaction-20";
+import "@fontsource/redaction-35";
 
 import SpeedInsights from "@vercel/speed-insights/astro";
 
 import merriweatherWoff from "@fontsource-variable/merriweather/files/merriweather-latin-wght-normal.woff2?url";
-import redaction20Woff from "@fontsource/redaction-20/files/redaction-20-latin-400-normal.woff2?url";
+import redaction35Woff from "@fontsource/redaction-35/files/redaction-35-latin-400-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -65,7 +65,7 @@ const DESCRIPTION =
     />
     <link
       rel="preload"
-      href={redaction20Woff}
+      href={redaction35Woff}
       as="font"
       type="font/woff2"
       crossorigin

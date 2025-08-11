@@ -23,6 +23,9 @@ importers:
       '@fontsource/redaction-20':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource/redaction-35':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/space-mono':
         specifier: ^5.2.8
         version: 5.2.8
@@ -389,6 +392,9 @@ packages:
 
   '@fontsource/redaction-20@5.2.5':
     resolution: {integrity: sha512-sshbJ87SQL1NbwDxQMYdAKOFhm5ydsZU7FyMhnesfhVaVPsahyy4QOlMcsRMyWGQMayXyCWbCEu1wHgwlmC2mg==}
+
+  '@fontsource/redaction-35@5.2.5':
+    resolution: {integrity: sha512-DH66SsDHTd9wxSW9nym6FgdTry9VFYSSUoi9STWBT/FSR4kf7WtCUZf3ThvYj8TvCOl8Kxi6vUX+1DIgJiXX4w==}
 
   '@fontsource/space-mono@5.2.8':
     resolution: {integrity: sha512-25X0fg1+kxxLes9/c6AozhrrAuBW1uLaOL584IRg4DZxVxNOMzcS3mHS1UtmsyTwtU2HpiIt9Kv23Q+7xQO+hg==}
@@ -3577,6 +3583,8 @@ snapshots:
   '@fontsource/merriweather@5.2.9': {}
 
   '@fontsource/redaction-20@5.2.5': {}
+
+  '@fontsource/redaction-35@5.2.5': {}
 
   '@fontsource/space-mono@5.2.8': {}
 
