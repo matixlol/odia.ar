@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import isotipo from "../assets/isotipo.png";
-import beer from "../assets/genericos/beer.png";
+import beerIos18 from "../assets/genericos/beer-ios18.png";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 import derechoAscii from "../assets/derecho-ascii.png";
@@ -69,18 +69,24 @@ const latestPosts: CollectionEntry<"blog">[] = (
           class="absolute flex-none text-[72px] text-shadow-none w-[3.2em] h-[2.1em]"
           transition:name="beers"
         >
-          <span
-            class="absolute left-7/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[-0.7em] -rotate-12"
-            >🍺</span
-          >
-          <span
-            class="absolute left-1/2 top-7/12 -translate-x-1/2 -translate-y-1/2 mt-[0.15em] z-10"
-            >🍺</span
-          >
-          <span
-            class="absolute left-5/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[0.7em] rotate-12"
-            >🍺</span
-          >
+          <Image
+            src={beerIos18}
+            alt=""
+            class="absolute left-7/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[-0.7em] -rotate-12 inline-block w-[1em] h-[1em]"
+            loading="eager"
+          />
+          <Image
+            src={beerIos18}
+            alt=""
+            class="absolute left-1/2 top-7/12 -translate-x-1/2 -translate-y-1/2 mt-[0.15em] z-10 inline-block w-[1em] h-[1em]"
+            loading="eager"
+          />
+          <Image
+            src={beerIos18}
+            alt=""
+            class="absolute left-5/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[0.7em] rotate-12 inline-block w-[1em] h-[1em]"
+            loading="eager"
+          />
         </a>
       </div>
     </div>
