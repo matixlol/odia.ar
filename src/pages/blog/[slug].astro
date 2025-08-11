@@ -49,6 +49,7 @@ export async function getStaticPaths() {
               alt={post.data.title}
               class="w-full h-auto rounded-lg shadow-md"
               loading="eager"
+              layout="constrained"
               transition:name={`${post.slug}-image`}
             />
           )
