@@ -4,9 +4,25 @@ import { Image } from "astro:assets";
 import chequeadoIcon from "./logos/chequeado.svg";
 import viaLibreIcon from "./logos/via-libre.png";
 import pagina12Icon from "./logos/pagina12.svg";
+import ambitoIcon from "./logos/ambito.svg";
+import clarinIcon from "./logos/clarin.svg";
+import cnnEspaniolIcon from "./logos/cnn-espaniol.svg";
+import laNacionIcon from "./logos/la-nacion.svg";
+import theJapanTimesIcon from "./logos/the-japan-times.svg";
+import wiredIcon from "./logos/wired.svg";
 import type { ImageMetadata } from "astro";
 
-type Outlet = "cels" | "chequeado" | "via-libre" | "pagina12";
+type Outlet =
+  | "cels"
+  | "chequeado"
+  | "via-libre"
+  | "pagina12"
+  | "ambito"
+  | "clarin"
+  | "la-nacion"
+  | "cnn-espaniol"
+  | "the-japan-times"
+  | "wired";
 interface Props {
   href: string;
   title: string;
@@ -19,7 +35,14 @@ const DOMAIN_TO_OUTLET: Record<string, Outlet> = {
   "cels.org.ar": "cels",
   "chequeado.com": "chequeado",
   "via-libre.com": "via-libre",
+  "vialibre.org.ar": "via-libre",
   "pagina12.com.ar": "pagina12",
+  "ambito.com": "ambito",
+  "clarin.com": "clarin",
+  "lanacion.com.ar": "la-nacion",
+  "cnnespanol.cnn.com": "cnn-espaniol",
+  "japantimes.co.jp": "the-japan-times",
+  "wired.com": "wired",
 };
 function tryGetOutlet(href: string) {
   const domain = new URL(href).hostname.replace("www.", "");
@@ -43,6 +66,24 @@ const LOGOS: Record<Outlet, { icon: string | ImageMetadata; text?: string }> = {
   },
   pagina12: {
     icon: pagina12Icon,
+  },
+  ambito: {
+    icon: ambitoIcon,
+  },
+  clarin: {
+    icon: clarinIcon,
+  },
+  "la-nacion": {
+    icon: laNacionIcon,
+  },
+  "cnn-espaniol": {
+    icon: cnnEspaniolIcon,
+  },
+  "the-japan-times": {
+    icon: theJapanTimesIcon,
+  },
+  wired: {
+    icon: wiredIcon,
   },
 };
 
