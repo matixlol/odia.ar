@@ -21,6 +21,62 @@
   navigation: auto;
 }
 
+@keyframes videogame-jump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.videogame-jump {
+  animation: videogame-jump 0.8s steps(1, end) infinite;
+}
+
+@keyframes videogame-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  12.5% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  37.5% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  62.5% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  87.5% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.videogame-rotate {
+  animation: videogame-rotate 1.6s steps(1, end) infinite;
+}
+
 .font-redaction-20 {
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;

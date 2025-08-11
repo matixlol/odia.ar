@@ -6,9 +6,9 @@ import ballmerPeakChart from "../assets/genericos/ballmer-peak-chart.png";
 
 <Layout title="Donar">
   <div
-    class="flex flex-col gap-4 bg-dark-purple text-light py-16 px-8 items-center justify-center min-h-screen max-w-full w-full"
+    class="flex flex-col gap-4 bg-dark-purple text-light py-16 items-center justify-center min-h-screen max-w-full w-full"
   >
-    <div class="flex flex-col gap-8 max-w-2xl">
+    <div class="flex flex-col gap-8 py-4 max-w-2xl px-4 md:px-8">
       <h1
         class="text-[60px] leading-none font-bold font-redaction-20 flex flex-row flex-wrap items-center gap-6 text-shadow-sexy text-shadow-turquoise-highlight md:justify-between justify-center"
       >
@@ -39,13 +39,35 @@ import ballmerPeakChart from "../assets/genericos/ballmer-peak-chart.png";
         >
         son la cantidad exacta para el funcionamiento óptimo de los miembros de O.D.I.A.
       </p>
+    </div>
 
-      <Image
-        src={ballmerPeakChart}
-        class="w-min h-auto"
-        alt="Gráfico que muestra la capacidad de programación en función del nivel de alcohol en sangre, con un pico óptimo alrededor del 0.1296%"
-      />
+    <Image
+      src={ballmerPeakChart}
+      class="w-min h-auto"
+      alt="Gráfico que muestra la capacidad de programación en función del nivel de alcohol en sangre, con un pico óptimo alrededor del 0.1296%"
+    />
 
+    <div class="flex flex-col items-center">
+      <p class="pt-4 flex flex-col items-center *:leading-[.8]">
+        <span
+          class="text-8xl text-red-highlight text-bold font-redaction-20 videogame-jump text-shadow-sexy text-shadow-turquoise-highlight"
+        >
+          $15.000
+        </span>
+        <span
+          class="text-2xl text-red-highlight text-bold font-redaction-20 videogame-jump text-shadow-sexy text-shadow-turquoise-highlight"
+        >
+          por mes
+        </span>
+      </p>
+      <div class="flex flex-row justify-between gap-4 w-full text-7xl pt-4">
+        <span class="videogame-rotate">🍺</span>
+        <span class="videogame-rotate">🍺</span>
+        <span class="videogame-rotate">🍺</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-8 py-4 max-w-2xl px-4 md:px-8">
       <p class="text-2xl font-merriweather">
         Si querés ayudarnos a seguir trabajando en favor de los derechos
         digitales, podes colaborar pagandonos tres birras por mes.
