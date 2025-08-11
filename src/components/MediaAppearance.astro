@@ -11,6 +11,11 @@ import laNacionIcon from "./logos/la-nacion.svg";
 import theJapanTimesIcon from "./logos/the-japan-times.svg";
 import wiredIcon from "./logos/wired.svg";
 import type { ImageMetadata } from "astro";
+import diarioJudicialIcon from "./logos/diariojudicial.png";
+import infobaeIcon from "./logos/infobae.svg";
+import laGacetaIcon from "./logos/la-gaceta.svg";
+import laiaIcon from "./logos/laia.png";
+import palabrasDelDerechoIcon from "./logos/palabrasdelderecho.png";
 
 type Outlet =
   | "cels"
@@ -22,7 +27,12 @@ type Outlet =
   | "la-nacion"
   | "cnn-espaniol"
   | "the-japan-times"
-  | "wired";
+  | "wired"
+  | "diariojudicial"
+  | "infobae"
+  | "la-gaceta"
+  | "laia"
+  | "palabrasdelderecho";
 interface Props {
   href: string;
   title: string;
@@ -43,6 +53,11 @@ const DOMAIN_TO_OUTLET: Record<string, Outlet> = {
   "cnnespanol.cnn.com": "cnn-espaniol",
   "japantimes.co.jp": "the-japan-times",
   "wired.com": "wired",
+  "diariojudicial.com": "diariojudicial",
+  "infobae.com": "infobae",
+  "lagaceta.com.ar": "la-gaceta",
+  "laia.ar": "laia",
+  "palabrasdelderecho.com.ar": "palabrasdelderecho",
 };
 function tryGetOutlet(href: string) {
   const domain = new URL(href).hostname.replace("www.", "");
@@ -84,6 +99,21 @@ const LOGOS: Record<Outlet, { icon: string | ImageMetadata; text?: string }> = {
   },
   wired: {
     icon: wiredIcon,
+  },
+  diariojudicial: {
+    icon: diarioJudicialIcon,
+  },
+  infobae: {
+    icon: infobaeIcon,
+  },
+  "la-gaceta": {
+    icon: laGacetaIcon,
+  },
+  laia: {
+    icon: laiaIcon,
+  },
+  palabrasdelderecho: {
+    icon: palabrasDelDerechoIcon,
   },
 };
 
