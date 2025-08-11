@@ -1,25 +1,48 @@
 ---
 import { Image } from "astro:assets";
 
-type Outlet = "cels" | "chequeado" | "via-libre";
+import chequeadoIcon from "./logos/chequeado.svg";
+import viaLibreIcon from "./logos/via-libre.png";
+import pagina12Icon from "./logos/pagina12.svg";
+import type { ImageMetadata } from "astro";
+
+type Outlet = "cels" | "chequeado" | "via-libre" | "pagina12";
 interface Props {
   href: string;
   title: string;
-  outlet: Outlet;
+  outlet?: Outlet;
 }
 
-const { href, title, outlet } = Astro.props as Props;
+const { href, title, outlet: outletOverride } = Astro.props as Props;
 
-const LOGOS = {
+const DOMAIN_TO_OUTLET: Record<string, Outlet> = {
+  "cels.org.ar": "cels",
+  "chequeado.com": "chequeado",
+  "via-libre.com": "via-libre",
+  "pagina12.com.ar": "pagina12",
+};
+function tryGetOutlet(href: string) {
+  const domain = new URL(href).hostname.replace("www.", "");
+  return DOMAIN_TO_OUTLET[domain];
+}
+const outlet = outletOverride || tryGetOutlet(href);
+if (!outlet) {
+  throw new Error(`No outlet found for ${href}`);
+}
+
+const LOGOS: Record<Outlet, { icon: string | ImageMetadata; text?: string }> = {
   cels: {
     icon: "https://www.google.com/s2/favicons?sz=128&domain=cels.org.ar",
     text: "CELS",
   },
   chequeado: {
-    icon: await import("./logos/chequeado.svg").then((m) => m.default),
+    icon: chequeadoIcon,
   },
   "via-libre": {
-    icon: await import("./logos/via-libre.png").then((m) => m.default),
+    icon: viaLibreIcon,
+  },
+  pagina12: {
+    icon: pagina12Icon,
   },
 };
 
@@ -28,7 +51,7 @@ const logoSrc = LOGOS[outlet].icon;
 
 <a
   href={href}
-  class="block rounded-md transition-colors no-underline"
+  class="block rounded-md transition-colors no-underline not-prose group"
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -61,7 +84,7 @@ const logoSrc = LOGOS[outlet].icon;
         }
       </div>
       <div
-        class="mt-1 text-2xl sm:text-3xl leading-snug font-extrabold text-dark font-merriweather"
+        class="mt-1 text-2xl sm:text-3xl leading-snug font-extrabold text-dark font-merriweather underline underline-offset-2 decoration-transparent transition-colors group-hover:decoration-turquoise-highlight"
       >
         {title}
       </div>
