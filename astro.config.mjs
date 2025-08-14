@@ -17,6 +17,8 @@ export default defineConfig({
   site: "https://odia.ar",
   adapter: vercel(),
 
+  build: { inlineStylesheets: "always" },
+
   vite: {
     plugins: [tailwindcss()],
     ssr: {
