@@ -77,7 +77,8 @@
   animation: videogame-rotate 1.6s steps(1, end) infinite;
 }
 
-.font-redaction-20 {
+@utility font-redaction-20 {
+  font-family: var(--font-redaction-20);
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
 }

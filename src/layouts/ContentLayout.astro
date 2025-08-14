@@ -1,0 +1,51 @@
+---
+import Layout from "./Layout.astro";
+import { Image } from "astro:assets";
+import isotipo from "../assets/isotipo.png";
+import NavBar from "../components/NavBar.astro";
+
+interface Props {
+  title: string;
+  slug: string;
+  description: string;
+  cover?: ImageMetadata;
+}
+
+const { title, slug, description, cover } = Astro.props;
+---
+
+<Layout title={title}>
+  <NavBar />
+
+  <main class="bg-light text-dark">
+    <header class="bg-dark-purple text-light">
+      <div
+        class="mx-auto py-16 max-w-6xl px-8 flex flex-col justify-between gap-4 md:flex-row"
+      >
+        <div class="max-w-xl">
+          <h1
+            class="text-4xl sm:text-6xl font-extrabold tracking-tight font-redaction-20 text-light"
+            transition:name={`${slug}-title`}
+          >
+            {title}
+          </h1>
+          <p class="mt-4 text-lg text-slate-300 font-merriweather">
+            {description}
+          </p>
+        </div>
+        {
+          cover && (
+            <Image
+              src={cover}
+              alt={title}
+              class="w-auto h-64 rounded-lg shadow-md object-cover aspect-video"
+              loading="eager"
+              transition:name={`${slug}-image`}
+            />
+          )
+        }
+      </div>
+    </header>
+    <slot />
+  </main>
+</Layout>

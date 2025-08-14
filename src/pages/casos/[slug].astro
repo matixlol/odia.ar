@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import NavBar from "../../components/NavBar.astro";
-import Layout from "../../layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 
 const { slug } = Astro.params;
 const entries: CollectionEntry<"casos">[] = await getCollection(
@@ -22,41 +20,15 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout title={entry.data.title}>
-  <NavBar />
-  <main class="bg-light text-dark">
-    <header class="bg-dark-purple text-light">
-      <div
-        class="mx-auto py-16 max-w-6xl px-8 flex flex-col justify-between gap-4 md:flex-row"
-      >
-        <div class="max-w-xl">
-          <h1
-            class="text-4xl sm:text-6xl font-extrabold tracking-tight font-redaction-20 text-light"
-            transition:name={`${entry.slug}-title`}
-          >
-            {entry.data.title}
-          </h1>
-          <p class="mt-4 text-lg text-slate-300 font-merriweather">
-            {entry.data.description}
-          </p>
-        </div>
-        {
-          entry.data.cover && (
-            <Image
-              src={entry.data.cover}
-              alt={entry.data.title}
-              class="w-auto h-64 rounded-lg shadow-md object-cover aspect-video"
-              loading="eager"
-              transition:name={`${entry.slug}-image`}
-            />
-          )
-        }
-      </div>
-    </header>
-    <article class="mx-auto max-w-3xl px-4 py-10 flex flex-col gap-6">
-      <div class="prose prose-neutral !max-w-none">
-        <Content />
-      </div>
-    </article>
-  </main>
-</Layout>
+<ContentLayout
+  title={entry.data.title}
+  slug={entry.slug}
+  description={entry.data.description}
+  cover={entry.data.cover}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10 flex flex-col gap-6">
+    <div class="prose prose-neutral !max-w-none">
+      <Content />
+    </div>
+  </article>
+</ContentLayout>

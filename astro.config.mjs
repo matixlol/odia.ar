@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import fs from "fs";
 import vercel from "@astrojs/vercel";
+import preact from "@astrojs/preact";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -34,6 +35,7 @@ export default defineConfig({
 
   integrations: [
     mdx(),
+    preact(),
     opengraphImages({
       options: {
         fonts: [

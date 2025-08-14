@@ -1,0 +1,31 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import Content, { getHeadings } from "./_justicia-digital.md";
+import TableOfContents from "../../components/TOC.tsx";
+---
+
+<ContentLayout
+  title="Justicia Digital en la Facultad de Derecho - UBA"
+  slug="justicia-digital"
+  description="Justicia Digital se ofrece dentro del Departamento de Ciencias Sociales del Ciclo Profesional Orientado en la Facultad de Derecho de la Universidad de Buenos Aires. La materia propone un recorrido crítico por los fenómenos sociales, políticos, económicos y jurídicos que emergen en el ecosistema digital contemporáneo."
+>
+  <div class="flex flex-col lg:flex-row gap-2 justify-center px-4">
+    <article
+      class="flex-1 max-w-3xl flex flex-col gap-6 pr-4 py-10 order-2 lg:order-1"
+    >
+      <div
+        class="prose prose-neutral !max-w-none font-merriweather prose-h2:font-redaction-20 prose-h2:!text-3xl"
+      >
+        <Content />
+      </div>
+    </article>
+    <div
+      class="w-full lg:w-80 bg-light text-dark lg:px-4 pt-10 pb-0 order-1 lg:order-2"
+    >
+      <h2 class="text-2xl font-bold font-redaction-20">Tabla de contenidos</h2>
+      <div class="sticky top-4 font-merriweather">
+        <TableOfContents client:idle headings={getHeadings()} />
+      </div>
+    </div>
+  </div>
+</ContentLayout>

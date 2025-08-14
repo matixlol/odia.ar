@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.1.0",
     "@astrojs/vercel": "^8.2.5",
     "@fontsource-variable/merriweather": "^5.2.4",
     "@fontsource-variable/raleway": "^5.2.6",
@@ -25,6 +26,7 @@
     "astro-opengraph-images": "^1.13.1",
     "astro-seo": "^0.8.4",
     "marked": "^12.0.2",
+    "preact": "^10.27.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.1.11"
   },
