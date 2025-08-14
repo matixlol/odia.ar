@@ -2,6 +2,7 @@
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import Content, { getHeadings } from "./_justicia-digital.md";
 import TableOfContents from "../../components/TOC.tsx";
+import Prose from "../../components/Prose.astro";
 ---
 
 <!-- TODO: agregar instagram y facebook(?) -->
@@ -14,11 +15,9 @@ import TableOfContents from "../../components/TOC.tsx";
     <article
       class="flex-1 max-w-3xl flex flex-col gap-6 pr-4 py-10 order-2 lg:order-1"
     >
-      <div
-        class="prose prose-neutral !max-w-none font-merriweather prose-h2:font-redaction-20 prose-h2:!text-3xl"
-      >
+      <Prose>
         <Content />
-      </div>
+      </Prose>
     </article>
     <div
       class="w-full lg:w-80 bg-light text-dark lg:px-4 pt-10 pb-0 order-1 lg:order-2"
