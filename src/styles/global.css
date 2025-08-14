@@ -15,6 +15,8 @@
   --color-light-gray: #bdd2ce;
 
   --text-shadow-sexy: 2px 3px 0px var(--color-dark);
+  --shadow-sexy: 2px 3px 0px var(--color-dark);
+  --shadow-sexy-lg: 4px 6px 0px var(--color-dark);
 }
 
 @view-transition {
