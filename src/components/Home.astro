@@ -233,7 +233,7 @@ const latestPosts: CollectionEntry<"blog">[] = (
         <h2
           class="text-4xl sm:text-5xl font-semibold mb-6 font-redaction-20 text-dark-purple underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
         >
-          Novedades
+          <a href="/blog/">Novedades</a>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestPosts.map((post) => <BlogCard post={post} />)}
