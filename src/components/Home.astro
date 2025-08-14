@@ -101,17 +101,25 @@ const latestPosts: CollectionEntry<"blog">[] = (
       alt="Derecho ASCII"
       class="w-full h-full object-cover aspect-[120/67]"
     />
-    <p
-      class="max-w-2xl mx-auto text-xl font-merriweather py-12 px-4 md:text-2xl leading-normal"
-    >
-      El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
-      <em
-        class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
-        >asociación civil sin fines de lucro</em
-      >
-      que fue creada con el objetivo de promover el ejercicio responsable de la ciudadanía
-      digital y garantizar que los derechos de la comunidad sean respetados.
-    </p>
+    <div class="flex flex-col py-12 px-6 mx-auto">
+      <p class="max-w-2xl text-xl font-merriweather md:text-2xl leading-normal">
+        El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
+        <em
+          class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
+          >asociación civil sin fines de lucro</em
+        >
+        que fue creada con el objetivo de promover el ejercicio responsable de la
+        ciudadanía digital y garantizar que los derechos de la comunidad sean respetados.
+      </p>
+      <div class="flex justify-end mr-8">
+        <a
+          href="/acerca"
+          class="text-light font-redaction-20 decoration-[3px] decoration-wavy underline-offset-4 bg-turquoise-highlight px-5 py-2 inline-block text-xl md:text-2xl hover:shadow-sexy transition-all duration-300 shadow-sexy-lg mt-4"
+        >
+          ¿Quienes somos?
+        </a>
+      </div>
+    </div>
   </section>
 
   <section class="bg-turquoise-highlight text-light">
