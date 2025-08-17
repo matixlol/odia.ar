@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import fs from "fs";
 import vercel from "@astrojs/vercel";
+import preact from "@astrojs/preact";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -15,6 +16,8 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://odia.ar",
   adapter: vercel(),
+
+  build: { inlineStylesheets: "always" },
 
   vite: {
     plugins: [tailwindcss()],
@@ -34,6 +37,7 @@ export default defineConfig({
 
   integrations: [
     mdx(),
+    preact(),
     opengraphImages({
       options: {
         fonts: [

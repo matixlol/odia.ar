@@ -11,7 +11,7 @@ const { post } = Astro.props as Props;
 
 <a href={`/blog/${post.slug}/`} class="group block">
   <article
-    class="bg-dark text-light rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-rotate-1"
+    class="bg-dark text-light overflow-hidden transition-all duration-300 hover:shadow-sexy hover:scale-102 shadow-sexy-lg shadow-turquoise-highlight"
   >
     {
       post.data.cover && (
@@ -27,12 +27,12 @@ const { post } = Astro.props as Props;
     }
     <div class="p-4 flex flex-col gap-2">
       <h3
-        class="text-2xl font-raleway group-hover:underline"
+        class="text-2xl font-redaction-20 group-hover:underline"
         transition:name={`${post.slug}-title`}
       >
         {post.data.title}
       </h3>
-      <p class="text-sm">
+      <p class="text-sm font-space-mono">
         {
           new Date(post.data.date).toLocaleDateString("es-AR", {
             year: "numeric",
@@ -41,7 +41,7 @@ const { post } = Astro.props as Props;
           })
         }
       </p>
-      <p class="">{post.data.description}</p>
+      <p class="font-merriweather">{post.data.description}</p>
     </div>
   </article>
 </a>

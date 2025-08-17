@@ -2,7 +2,6 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-raleway: "Raleway Variable", sans-serif;
   --font-merriweather: "Merriweather Variable", serif;
   --font-space-mono: "Space Mono", monospace;
   --font-redaction-20: "Redaction 35", "Merriweather Variable", serif;
@@ -15,6 +14,8 @@
   --color-light-gray: #bdd2ce;
 
   --text-shadow-sexy: 2px 3px 0px var(--color-dark);
+  --shadow-sexy: 2px 3px 0px var(--color-dark);
+  --shadow-sexy-lg: 4px 6px 0px var(--color-dark);
 }
 
 @view-transition {
@@ -77,7 +78,8 @@
   animation: videogame-rotate 1.6s steps(1, end) infinite;
 }
 
-.font-redaction-20 {
+@utility font-redaction-20 {
+  font-family: var(--font-redaction-20);
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
 }

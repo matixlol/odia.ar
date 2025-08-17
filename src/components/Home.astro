@@ -27,6 +27,7 @@ const latestPosts: CollectionEntry<"blog">[] = (
           class="size-48 block md:hidden mx-auto"
           loading="eager"
           transition:name="isotipo"
+          layout="constrained"
         />
 
         <div
@@ -38,6 +39,7 @@ const latestPosts: CollectionEntry<"blog">[] = (
             class="size-48 md:block hidden"
             loading="eager"
             transition:name="isotipo"
+            layout="constrained"
           />
           <h1
             class="text-[40px] sm:text-6xl font-extrabold leading-[1] tracking-tight font-redaction-20 text-light-gray text-shadow-[2px_3px_0px_var(--color-turquoise-highlight)] mx-auto mb-4"
@@ -100,18 +102,28 @@ const latestPosts: CollectionEntry<"blog">[] = (
       src={derechoAscii}
       alt="Derecho ASCII"
       class="w-full h-full object-cover aspect-[120/67]"
+      layout="constrained"
+      loading="eager"
     />
-    <p
-      class="max-w-2xl mx-auto text-xl font-merriweather py-12 px-4 md:text-2xl leading-normal"
-    >
-      El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
-      <em
-        class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
-        >asociación civil sin fines de lucro</em
-      >
-      que fue creada con el objetivo de promover el ejercicio responsable de la ciudadanía
-      digital y garantizar que los derechos de la comunidad sean respetados.
-    </p>
+    <div class="flex flex-col py-12 px-6 mx-auto">
+      <p class="max-w-2xl text-xl font-merriweather md:text-2xl leading-normal">
+        El Observatorio de Derecho Informático Argentino (O.D.I.A.) es una
+        <em
+          class="not-italic underline decoration-light-gray decoration-[3px] decoration-wavy underline-offset-2 text-dark-purple"
+          >asociación civil sin fines de lucro</em
+        >
+        que fue creada con el objetivo de promover el ejercicio responsable de la
+        ciudadanía digital y garantizar que los derechos de la comunidad sean respetados.
+      </p>
+      <div class="flex justify-end mr-8">
+        <a
+          href="/acerca"
+          class="text-light font-redaction-20 decoration-[3px] decoration-wavy underline-offset-4 bg-turquoise-highlight px-5 py-2 inline-block text-xl md:text-2xl hover:shadow-sexy transition-all duration-300 shadow-sexy-lg mt-4"
+        >
+          ¿Quienes somos?
+        </a>
+      </div>
+    </div>
   </section>
 
   <section class="bg-turquoise-highlight text-light">
@@ -198,11 +210,19 @@ const latestPosts: CollectionEntry<"blog">[] = (
 
     <section class="bg-light-gray text-dark">
       <div class="mx-auto max-w-6xl px-4 py-16">
-        <h2
-          class="text-4xl sm:text-5xl font-semibold mb-6 font-redaction-20 text-dark-purple underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
+        <div
+          class="flex flex-col gap-0"
+          transition:name="justicia-digital-title"
         >
-          Justicia Digital
-        </h2>
+          <h2
+            class="text-4xl sm:text-5xl font-semibold font-redaction-20 text-dark-purple underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
+          >
+            <a href="/facultad-derecho/justicia-digital">Justicia Digital</a>
+          </h2>
+          <h3 class="text-2xl font-redaction-20 font-semibold mb-2">
+            Facultad de Derecho - UBA
+          </h3>
+        </div>
         <p class="text-lg sm:text-xl font-merriweather max-w-3xl">
           Dos veces por semana nos encuentran en las aulas de la Facultad de
           Derecho de la Universidad de Buenos Aires en la materia Justicia
@@ -211,6 +231,12 @@ const latestPosts: CollectionEntry<"blog">[] = (
           y diálogo del derecho informático, su contexto y su implicancia
           política.
         </p>
+        <a
+          href="/facultad-derecho/justicia-digital"
+          class="text-light font-redaction-20 decoration-[3px] decoration-wavy underline-offset-4 bg-turquoise-highlight px-5 py-2 inline-block text-xl md:text-2xl hover:shadow-sexy transition-all duration-300 shadow-sexy-lg mt-4"
+        >
+          Leer más
+        </a>
       </div>
     </section>
 
@@ -219,7 +245,7 @@ const latestPosts: CollectionEntry<"blog">[] = (
         <h2
           class="text-4xl sm:text-5xl font-semibold mb-6 font-redaction-20 text-dark-purple underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
         >
-          Novedades
+          <a href="/blog/">Novedades</a>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestPosts.map((post) => <BlogCard post={post} />)}
@@ -227,7 +253,7 @@ const latestPosts: CollectionEntry<"blog">[] = (
         <div class="mt-8 flex justify-end">
           <a
             href="/blog/"
-            class="text-light font-raleway underline decoration-turquoise-highlight decoration-[3px] decoration-wavy underline-offset-4 bg-dark px-5 py-2 rounded-lg inline-block text-xl md:text-2xl outline-transparent outline-2 hover:outline-light-gray outline-offset-2 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg"
+            class="text-light font-redaction-20 decoration-[3px] decoration-wavy underline-offset-4 bg-turquoise-highlight px-5 py-2 inline-block text-xl md:text-2xl hover:shadow-sexy transition-all duration-300 shadow-sexy-lg mt-4"
           >
             Ver todas las novedades
           </a>
