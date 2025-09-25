@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import isotipo from "../assets/isotipo.png";
-import beerIos18 from "../assets/genericos/beer-ios18.png";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 import derechoAscii from "../assets/derecho-ascii.png";
@@ -65,32 +64,6 @@ const latestPosts: CollectionEntry<"blog">[] = (
             >derechos digitales</span
           >.
         </h2>
-      </div>
-      <div class="flex flex-col gap-4 items-center justify-center md:pr-24">
-        <a
-          href="/donar"
-          class="absolute flex-none text-[72px] text-shadow-none w-[3.2em] h-[2.1em]"
-          transition:name="beers"
-        >
-          <Image
-            src={beerIos18}
-            alt="cerveza"
-            class="absolute left-7/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[-0.7em] -rotate-12 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-          <Image
-            src={beerIos18}
-            alt="cerveza"
-            class="absolute left-1/2 top-7/12 -translate-x-1/2 -translate-y-1/2 mt-[0.15em] z-10 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-          <Image
-            src={beerIos18}
-            alt="cerveza"
-            class="absolute left-5/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[0.7em] rotate-12 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-        </a>
       </div>
     </div>
   </section>
@@ -238,6 +211,21 @@ const latestPosts: CollectionEntry<"blog">[] = (
           Leer más
         </a>
       </div>
+    </section>
+
+    <section
+      class="bg-dark text-light flex md:flex-row flex-col gap-4 items-center justify-center py-8"
+    >
+      <h2
+        class="text-2xl sm:text-3xl font-semibold font-redaction-20 text-light text-shadow-sexy text-shadow-dark underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
+      >
+        Si te parece importante lo que hacemos...
+      </h2>
+      <a
+        href="/donar"
+        class="text-light font-redaction-20 decoration-[3px] decoration-wavy underline-offset-4 bg-turquoise-highlight px-5 py-2 inline-block text-xl md:text-2xl hover:shadow-sexy transition-all duration-300 shadow-sexy-lg shadow-light-gray"
+        >Doná!</a
+      >
     </section>
 
     <section class="bg-light text-dark">

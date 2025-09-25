@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import ballmerPeakChart from "../assets/genericos/ballmer-peak-chart.png";
-import beerIos18 from "../assets/genericos/beer-ios18.png";
 ---
 
 <Layout title="Donar">
@@ -13,46 +11,9 @@ import beerIos18 from "../assets/genericos/beer-ios18.png";
       <h1
         class="text-[60px] leading-none font-bold font-redaction-20 flex flex-row flex-wrap items-center gap-6 text-shadow-sexy text-shadow-turquoise-highlight md:justify-start justify-center"
       >
-        Tres birras.
-        <div
-          class="relative flex-none text-[72px] text-shadow-none w-[3.2em] h-[2.1em]"
-          transition:name="beers"
-          aria-hidden="true"
-        >
-          <Image
-            src={beerIos18}
-            alt=""
-            class="absolute left-7/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[-0.7em] -rotate-12 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-          <Image
-            src={beerIos18}
-            alt=""
-            class="absolute left-1/2 top-7/12 -translate-x-1/2 -translate-y-1/2 mt-[0.15em] z-10 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-          <Image
-            src={beerIos18}
-            alt=""
-            class="absolute left-5/12 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-[0.7em] rotate-12 inline-block w-[1em] h-[1em]"
-            loading="eager"
-          />
-        </div>
+        Doná a O.D.I.A.
       </h1>
-      <p class="text-2xl font-merriweather">
-        Nuestros estudios demuestran que
-        <em class="not-italic underline decoration-light-gray decoration-wavy"
-          >tres birras</em
-        >
-        son la cantidad exacta para el funcionamiento óptimo de los miembros de O.D.I.A.
-      </p>
     </div>
-
-    <Image
-      src={ballmerPeakChart}
-      class="w-auto h-auto"
-      alt="Gráfico que muestra la capacidad de programación en función del nivel de alcohol en sangre, con un pico óptimo alrededor del 0.1296%"
-    />
 
     <div class="flex flex-col items-center">
       <p class="pt-4 flex flex-col items-center *:leading-[.8]">
@@ -67,26 +28,6 @@ import beerIos18 from "../assets/genericos/beer-ios18.png";
           por mes
         </span>
       </p>
-      <div class="flex flex-row justify-between gap-4 w-full text-7xl pt-4">
-        <Image
-          src={beerIos18}
-          alt=""
-          class="videogame-rotate inline-block w-[1em] h-[1em]"
-          loading="eager"
-        />
-        <Image
-          src={beerIos18}
-          alt=""
-          class="videogame-rotate inline-block w-[1em] h-[1em]"
-          loading="eager"
-        />
-        <Image
-          src={beerIos18}
-          alt=""
-          class="videogame-rotate inline-block w-[1em] h-[1em]"
-          loading="eager"
-        />
-      </div>
     </div>
 
     <div class="flex flex-col gap-8 py-4 max-w-2xl px-4 md:px-8">
