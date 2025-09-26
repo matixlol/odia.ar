@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import fs from "fs";
 import vercel from "@astrojs/vercel";
 import preact from "@astrojs/preact";
+import embeds from "astro-embed/integration";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -36,6 +37,7 @@ export default defineConfig({
   },
 
   integrations: [
+    embeds(),
     mdx(),
     preact(),
     opengraphImages({
