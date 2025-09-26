@@ -9,8 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^4.1.0",
-    "@astrojs/vercel": "^8.2.5",
+    "@astrojs/preact": "^4.1.1",
+    "@astrojs/vercel": "^8.2.8",
     "@fontsource-variable/merriweather": "^5.2.4",
     "@fontsource-variable/raleway": "^5.2.6",
     "@fontsource/merriweather": "^5.2.9",
@@ -21,7 +21,7 @@
     "@iconify-json/pixelarticons": "^1.2.2",
     "@tailwindcss/vite": "^4.1.11",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.12.9",
+    "astro": "^5.14.0",
     "astro-embed": "^0.9.1",
     "astro-icon": "^1.1.5",
     "astro-opengraph-images": "^1.13.1",
@@ -32,7 +32,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/mdx": "^4.3.6",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^19.1.9",
