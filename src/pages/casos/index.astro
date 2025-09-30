@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const cases: CollectionEntry<"casos">[] = (
+  await getCollection("casos", ({ data }) => !data.draft)
+).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout title="Nuestro trabajo">
+  <NavBar />
+  <main class="bg-light text-dark min-h-screen">
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <h1
+        class="text-4xl sm:text-5xl font-semibold mb-6 font-redaction-20 text-dark-purple underline decoration-turquoise-highlight decoration-[3px] underline-offset-4"
+      >
+        Nuestro trabajo
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {
+          cases.map((caso) => (
+            <div class="flex flex-col gap-4">
+              {caso.data.cover && (
+                <a href={`/casos/${caso.slug}`}>
+                  <Image
+                    src={caso.data.cover}
+                    alt={caso.data.title}
+                    class="w-full h-48 object-cover rounded-lg shadow-md"
+                    loading="lazy"
+                    transition:name={`${caso.slug}-image`}
+                  />
+                </a>
+              )}
+              <a
+                href={`/casos/${caso.slug}`}
+                class="flex justify-between group bg-dark px-2 py-1"
+              >
+                <h3
+                  class="text-2xl sm:text-3xl font-semibold font-redaction-20 text-shadow-sexy text-light text-shadow-dark group-hover:text-light-gray transition-colors duration-300"
+                  transition:name={`${caso.slug}-title`}
+                >
+                  {caso.data.shortTitle || caso.data.title}
+                </h3>
+                <Icon
+                  name="pixelarticons:arrow-right"
+                  class="size-8 text-light group-hover:text-light-gray transition-all group-hover:translate-x-1 duration-300"
+                  style="filter: drop-shadow(2px 3px 0px var(--color-dark));"
+                />
+              </a>
+              <p class="text-lg font-merriweather leading-snug">
+                {caso.data.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
