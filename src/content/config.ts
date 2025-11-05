@@ -17,6 +17,7 @@ const casos = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      shortTitle: z.string().optional(),
       description: z.string(),
       cover: image().optional(),
       draft: z.boolean().default(false),
