@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import NavBar from "../../components/NavBar.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-
+import { components } from "../../../mdx.config";
 const { slug } = Astro.params;
 const posts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
@@ -57,7 +57,7 @@ export async function getStaticPaths() {
       </header>
 
       <div class="prose prose-slate max-w-none font-merriweather">
-        <Content />
+        <Content components={components} />
       </div>
     </article>
   </main>

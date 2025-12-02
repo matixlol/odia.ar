@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import fs from "fs";
 import vercel from "@astrojs/vercel";
-import preact from "@astrojs/preact";
 import embeds from "astro-embed/integration";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -12,10 +11,13 @@ import { brandedLogo } from "./src/opengraph";
 
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import keystatic from "@keystatic/astro";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://odia.ar",
+  output: "server",
   adapter: vercel(),
 
   build: { inlineStylesheets: "always" },
@@ -39,7 +41,8 @@ export default defineConfig({
   integrations: [
     embeds(),
     mdx(),
-    preact(),
+    react(),
+    keystatic(),
     opengraphImages({
       options: {
         fonts: [
