@@ -20,7 +20,7 @@ const outletOptions = [
 ] as const;
 
 const contentComponents = {
-  MediaAppearance: block({
+  mediaappearance: block({
     label: "Aparición en medios",
     schema: {
       href: fields.url({
@@ -35,14 +35,14 @@ const contentComponents = {
       }),
     },
   }),
-  Timeline: repeating({
+  timeline: repeating({
     label: "Línea de tiempo",
-    children: ["TimelineEvent"],
+    children: ["timelineevent"],
     schema: {
       title: fields.text({ label: "Título (opcional)" }),
     },
   }),
-  TimelineEvent: wrapper({
+  timelineevent: wrapper({
     label: "Evento de línea de tiempo",
     schema: {
       title: fields.text({ label: "Título", validation: { isRequired: true } }),
@@ -52,7 +52,7 @@ const contentComponents = {
       }),
     },
   }),
-  SocialLink: block({
+  sociallink: block({
     label: "Enlace social",
     schema: {
       href: fields.url({ label: "URL", validation: { isRequired: true } }),
@@ -82,7 +82,7 @@ const blogSchema = {
     label: "Borrador",
     defaultValue: false,
   }),
-  content: fields.mdx({
+  content: fields.markdoc({
     label: "Contenido",
     components: contentComponents,
   }),
@@ -98,6 +98,7 @@ export default config({
       slugField: "title",
       path: "src/content/blog/**",
       format: { contentField: "content", data: "yaml" },
+      filePattern: "**/*.mdoc",
       entryLayout: "content",
       schema: blogSchema,
     }),
@@ -106,6 +107,7 @@ export default config({
       slugField: "title",
       path: "src/content/casos/*",
       format: { contentField: "content", data: "yaml" },
+      filePattern: "**/*.mdoc",
       entryLayout: "content",
       schema: {
         title: fields.slug({ name: { label: "Título" } }),
@@ -125,7 +127,7 @@ export default config({
           label: "Borrador",
           defaultValue: false,
         }),
-        content: fields.mdx({
+        content: fields.markdoc({
           label: "Contenido",
           components: contentComponents,
         }),

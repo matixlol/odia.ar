@@ -10,7 +10,7 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 import { brandedLogo } from "./src/opengraph";
 
 import icon from "astro-icon";
-import mdx from "@astrojs/mdx";
+import markdoc from "@astrojs/markdoc";
 import react from "@astrojs/react";
 import keystatic from "@keystatic/astro";
 
@@ -40,7 +40,7 @@ export default defineConfig({
 
   integrations: [
     embeds(),
-    mdx(),
+    markdoc(),
     react(),
     keystatic(),
     opengraphImages({
