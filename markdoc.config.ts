@@ -1,6 +1,11 @@
-import { defineMarkdocConfig, component } from "@astrojs/markdoc/config";
+import { defineMarkdocConfig, component, nodes } from "@astrojs/markdoc/config";
 
 export default defineMarkdocConfig({
+  nodes: {
+    html: {
+      ...nodes.html,
+    },
+  },
   tags: {
     mediaappearance: {
       render: component("./src/components/MediaAppearance.astro"),
@@ -30,6 +35,13 @@ export default defineMarkdocConfig({
         icon: { type: String, required: true },
         ariaLabel: { type: String, required: false },
       },
+    },
+    details: {
+      render: component("./src/components/Details.astro"),
+      attributes: {
+        summary: { type: String, required: true },
+      },
+      children: ["paragraph", "heading", "list", "item", "fence", "code", "html"],
     },
   },
 });

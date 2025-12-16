@@ -40,7 +40,7 @@ export default defineConfig({
 
   integrations: [
     embeds(),
-    markdoc(),
+    markdoc({ allowHTML: true }),
     react(),
     keystatic(),
     opengraphImages({
