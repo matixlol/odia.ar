@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import Prose from "../../components/Prose.astro";
-
 const { slug } = Astro.params;
 const entries: CollectionEntry<"casos">[] = await getCollection(
   "casos",
