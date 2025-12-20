@@ -6,12 +6,36 @@ interface Props {
 const { summary } = Astro.props;
 ---
 
-<details class="my-4">
-  <summary class="cursor-pointer font-semibold text-dark-purple hover:text-dark-purple/80">
-    {summary}
+<details class="group my-6 overflow-hidden rounded-md border-2 border-dark-purple bg-light shadow-sexy transition-all hover:shadow-sexy-lg open:shadow-sexy-lg">
+  <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-redaction-20 font-bold text-xl tracking-tight text-dark-purple transition-colors hover:bg-dark-purple/5">
+    <span class="flex-1 select-none">{summary}</span>
+    <div class="ml-4 flex size-8 shrink-0 items-center justify-center rounded border-2 border-dark-purple bg-light group-open:bg-dark-purple group-open:text-light transition-all duration-300">
+      <svg 
+        class="size-4 transition-transform duration-300 group-open:rotate-180" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
   </summary>
-  <div class="mt-2">
+  <div class="border-t-2 border-dark-purple px-4 py-5 text-dark-purple prose prose-sm max-w-none bg-white/20">
     <slot />
   </div>
 </details>
+
+<style>
+  /* Remove default arrow in various browsers */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+  }
+</style>
 
