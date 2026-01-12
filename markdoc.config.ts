@@ -31,5 +31,13 @@ export default defineMarkdocConfig({
         ariaLabel: { type: String, required: false },
       },
     },
+    pdfembed: {
+      render: component("./src/components/PdfEmbed.astro"),
+      attributes: {
+        src: { type: String, required: true },
+        title: { type: String, required: false },
+        height: { type: Number, required: false },
+      },
+    },
   },
 });
