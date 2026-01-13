@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  height?: number;
+}
+
+const { src, title = "PDF", height = 800 } = Astro.props as Props;
+---
+
+<div class="w-full">
+  <iframe
+    src={src}
+    title={title}
+    width="100%"
+    height={height}
+    style="border: 1px solid #e5e7eb; border-radius: 8px;"
+  ></iframe>
+</div>
