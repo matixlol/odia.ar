@@ -2,57 +2,41 @@
 import SocialLink from "./SocialLink.astro";
 ---
 
-<footer class="bg-dark-purple text-light">
+<footer
+  class="bg-dark-purple text-light [&_a]:underline [&_a]:text-light-gray [&_a]:hover:text-light [&_a]:transition-colors"
+>
   <div
-    class="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 md:grid-cols-5 items-center gap-4 font-merriweather"
+    class="mx-auto max-w-6xl px-4 py-10 flex flex-col md:flex-row items-start gap-8 font-merriweather"
   >
-    <div class="flex flex-col gap-3 col-span-2 text-center md:text-left text-sm">
-      <ul class="flex flex-col gap-1">
-        <li>
-          <a href="/" class="text-light-gray hover:text-light transition-colors">
-            Observatorio de Derecho Informático Argentino (O.D.I.A.)
-          </a>
-        </li>
-        <li>
-          <a
-            href="/acerca"
-            class="text-light-gray hover:text-light transition-colors"
-          >
-            Acerca de nosotros
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://marca.odia.legal"
-            class="text-light-gray hover:text-light transition-colors"
-          >
-            Marca
-          </a>
-        </li>
-      </ul>
+    <ul class="flex flex-col gap-1 text-left text-sm">
+      <li>
+        <a href="/">
+          Observatorio de Derecho Informático Argentino (O.D.I.A.)
+        </a>
+      </li>
+      <li>
+        <a href="/acerca"> Acerca de nosotros </a>
+      </li>
+      <li>
+        <a href="https://marca.odia.legal"> Marca </a>
+      </li>
+    </ul>
 
-      <div class="flex flex-col gap-1 text-light-gray leading-relaxed">
-        <p>
-          Promovemos el ejercicio responsable de la ciudadanía digital y
-          garantizamos que los derechos de la comunidad sean respetados.
-        </p>
-        <p>CUIT: 30-71646782-8</p>
-        <p>Camarones 4923, Depto. 4, C1407, Ciudad Autónoma de Buenos Aires</p>
-      </div>
+    <div
+      class="flex flex-col gap-1 text-left text-sm text-light-gray text-balance leading-relaxed"
+    >
+      <p>
+        Promovemos el ejercicio responsable de la ciudadanía digital y
+        garantizamos que los derechos de la comunidad sean respetados.
+      </p>
+      <p>CUIT: 30-71646782-8</p>
+      <p>Camarones 4923, Depto. 4, C1407, Ciudad Autónoma de Buenos Aires</p>
+      <!-- TODO: mail institucional por favorrrr -->
+      <a href="mailto:odiaasoc@gmail.com">odiaasoc@gmail.com</a>
     </div>
 
-    <p class="text-sm text-light-gray text-center leading-relaxed">
-      <!-- TODO: mail institucional por favorrrr -->
-      <a
-        href="mailto:odiaasoc@gmail.com"
-        class="text-light-gray hover:text-light transition-colors"
-      >
-        odiaasoc@gmail.com
-      </a>
-    </p>
-
     <ul
-      class="flex items-center gap-3 flex-wrap justify-center md:justify-end col-span-2 text-light-gray *:hover:text-light transition-colors"
+      class="flex items-center gap-3 justify-center md:justify-end text-light-gray *:hover:text-light transition-colors"
     >
       <li>
         <SocialLink
@@ -70,23 +54,9 @@ import SocialLink from "./SocialLink.astro";
       </li>
       <li>
         <SocialLink
-          href="https://www.facebook.com/ODIAasoc"
-          icon="mdi:facebook"
-          ariaLabel="Facebook"
-        />
-      </li>
-      <li>
-        <SocialLink
           href="https://www.linkedin.com/company/odiaasoc/"
           icon="mdi:linkedin"
           ariaLabel="LinkedIn"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://medium.com/@odiaasoc"
-          icon="mdi:medium"
-          ariaLabel="Medium"
         />
       </li>
       <li>
@@ -101,13 +71,6 @@ import SocialLink from "./SocialLink.astro";
           href="https://www.youtube.com/@observatoriodederechoinfor7762/videos"
           icon="mdi:youtube"
           ariaLabel="YouTube"
-        />
-      </li>
-      <li>
-        <SocialLink
-          href="https://t.me/odiaasoc"
-          icon="mdi:telegram"
-          ariaLabel="Telegram"
         />
       </li>
     </ul>
