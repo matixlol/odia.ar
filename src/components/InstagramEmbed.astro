@@ -1,0 +1,30 @@
+---
+interface Props {
+  url: string;
+  caption?: boolean;
+  height?: number;
+}
+
+const { url, caption = false, height = caption ? 860 : 640 } =
+  Astro.props as Props;
+
+// Accept a canonical reel/post URL and turn it into Instagram's public
+// iframe embed endpoint, e.g.
+//   https://www.instagram.com/reel/SHORTCODE/  ->  .../reel/SHORTCODE/embed/
+const base = url.replace(/\/+$/, "");
+const embedSrc = `${base}/embed/${caption ? "captioned/" : ""}`;
+---
+
+<div class="not-prose mx-auto w-full max-w-[400px]">
+  <iframe
+    src={embedSrc}
+    title="Instagram"
+    width="100%"
+    height={height}
+    frameborder="0"
+    scrolling="no"
+    allowtransparency="true"
+    loading="lazy"
+    style="border: 1px solid #e5e7eb; border-radius: 8px;"
+  ></iframe>
+</div>
