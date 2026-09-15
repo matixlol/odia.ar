@@ -26,3 +26,6 @@ pnpm-debug.log*
 .vercel
 .env*
 !.env.example
+
+# Amp orb portal metadata
+.amp/portals/*
