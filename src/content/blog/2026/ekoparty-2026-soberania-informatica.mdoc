@@ -1,0 +1,61 @@
+---
+title: "EKOPARTY 2026: soberanía informática, datos personales y el Estado que compra tecnología"
+description: "En el stream Lado B de la Ekoparty conversamos con Gala sobre nuestros litigios, el nuevo proyecto de ley de datos personales y la urgencia de construir puentes entre las instituciones y la comunidad IT."
+date: 2026-10-07
+cover: ./ekoparty-2026-lado-b.jpg
+---
+
+El miércoles 7 de octubre estuvimos en la [Ekoparty](https://ekoparty.org/), el encuentro de seguridad informática más grande de la región. **Tomás Pomar**, presidente de ODIA y docente de [Justicia Digital en la Facultad de Derecho de la UBA](/facultad-derecho/justicia-digital), conversó con Gala en **Lado B**, el stream que acompaña la conferencia, sobre el proyecto de modificación de la ley de datos personales, la soberanía informática y la urgencia de construir puentes entre las instituciones y la comunidad IT de nuestro país.
+
+La entrevista quedó grabada y se puede ver completa en el [canal de YouTube de la Ekoparty](https://www.youtube.com/watch?v=3Au7ISajxdE&t=22385s), a partir de la hora 6:13 de la transmisión del primer día.
+
+## Poner orden en el caos con litigio estratégico
+
+La conversación arrancó por el lema de esta edición, el caos. Contamos que trabajamos ese caos en dos niveles: diagnosticarlo y entenderlo. Cuando miramos cómo el Estado contrata tecnología, cómo organiza sus estructuras informáticas y cómo trata los datos de la ciudadanía, lo que encontramos es desorden. Y con las pocas herramientas que tenemos, intentamos ordenarlo a través de causas judiciales, litigio estratégico y antecedentes.
+
+El ejemplo más claro es el del [Sistema de Reconocimiento Facial de Prófugos](/casos/reconocimiento-facial) de la Ciudad de Buenos Aires, la causa que ganamos y que mantiene el sistema [suspendido desde 2022](https://chequeado.com/el-explicador/porque-se-suspendio-el-sistema-de-reconocimiento-facial-de-la-ciudad-de-buenos-aires/). En ese proceso quedaron a la vista problemas que difícilmente se hubieran conocido de otra forma:
+
+- un sistema de altísima criticidad con **14 usuarios con permisos totales de administración**, ninguno nominativo, por lo que era imposible saber quién había hecho qué;
+- una base de datos de prófugos, la CONARC, que se carga a mano y que nadie verifica, con errores tan groseros como **niños menores de 5 años buscados por robo con arma de fuego**, cuyas fotos el sistema convertía en plantillas biométricas para salir a buscar rostros por toda la ciudad. [Human Rights Watch documentó](https://www.hrw.org/es/news/2020/10/09/argentina-publica-en-linea-datos-personales-de-ninos-y-ninas-acusados-de-cometer) al menos 166 niños y niñas en esa base entre 2017 y 2020;
+- consultas al RENAPER sin ningún sistema de alerta sobre quién pedía datos biométricos y para qué. El CELS informó que el Ministerio de Seguridad porteño [buscó datos biométricos de 7 millones de personas](https://www.cels.org.ar/web/2022/04/el-ministerio-de-seguridad-de-la-ciudad-busco-informacion-biometrica-de-7-millones-de-personas-de-manera-ilegal/) por fuera del sistema;
+- un cifrado que, cuando lo hicimos público, la comunidad de seguridad informática identificó como roto y descartado hacía más de una década.
+
+Detrás de cada falso positivo hay personas. Guillermo Federico Ibarrola pasó [**seis días detenido**](https://defensoria.org.ar/archivo_noticias/irregularidades-en-el-sistema-de-reconocimiento-facial/) porque el sistema lo confundió con un prófugo. Y hubo quien, como el desarrollador Leo Colombo Viña, documentó con fotos todo el procedimiento policial mientras lo identificaban por error, y nos ayudó a mostrar cómo funcionaba el sistema en la práctica.
+
+Dijimos en la entrevista que no podemos afirmar si todo esto fue producto de la negligencia o de algo peor. En cualquiera de los dos casos es gravísimo: cuando se implementa un sistema, lo mínimo es que se pueda auditar y que deje un registro de lo que se hizo. Por eso nuestro reclamo no se agota en el reconocimiento facial: la pregunta de fondo es **qué reglas le ponemos al Estado para que compre tecnología** de una forma razonable y cercana a los estándares que la propia industria argentina ya maneja.
+
+## ¿Tenemos derecho a auditar el software del Estado?
+
+El régimen de compras públicas sigue pensado para bienes tangibles, pero el Estado compra cada vez más licencias y, sobre todo, **software como servicio**. Eso abre preguntas que todavía no tienen respuesta: ¿tenemos derecho a conocer el código fuente del software que usa el Estado para tomar decisiones sobre nuestras vidas, el conjunto de datos con el que funciona o su arquitectura? ¿O vamos hacia un Estado cada vez más opaco, que paga licencias a empresas privadas sin poder explicar cómo decide?
+
+Cuando el Estado contrata software como servicio, exporta los datos de la ciudadanía y recibe resultados procesados afuera. Eso ya es un problema de soberanía. Lo vimos en nuestro caso sobre la [aplicación Cuidar](/casos/app-cuidar), en el que obtuvimos la primera sentencia que reconoce un **derecho colectivo al borrado de datos**: terminada la pandemia, los datos recolectados sin consentimiento debían eliminarse. Cuando pedimos que se acreditara el borrado, nos informaron que el sistema corría en tres bases redundantes, una de ellas en los servidores de Amazon Web Services, algo que ya surgía de las [respuestas oficiales a nuestro pedido de acceso a la información](/static/documents/respuestas-cuidar.pdf). La [Cámara ordenó el borrado integral](https://www.infobae.com/judiciales/2024/06/10/la-justicia-le-ordeno-al-gobierno-nacional-borrar-la-bases-de-datos-de-la-aplicacion-cuidar-que-se-utilizo-en-la-pandemia/) en junio de 2024. Si los datos de millones de personas se migraron fuera del país, ¿cómo podemos tener por cumplida una orden judicial de borrado?
+
+Para nosotros, la salida no pasa necesariamente por megacentros de datos. Hoy existen alternativas descentralizadas, como centros de datos modulares que pueden correr de forma local en un municipio o una provincia, y modelos de inteligencia artificial más acotados y pensados para usos específicos. Hay que evitar la idea de que la única solución es exportar los datos y recibir los manuales en inglés.
+
+## El nuevo proyecto de ley de datos personales
+
+Gala nos preguntó por el proyecto de ley de protección de datos personales del Poder Ejecutivo, que analizamos en la [mesa de diálogo que organizamos en septiembre](/blog/2026/proteccion-de-datos-industria-nacional-soberania) después de recibirlo del Ministerio de Desregulación para hacer aportes.
+
+Explicamos que hay que tener cuidado con el argumento de que la ley actual es anacrónica: las leyes no vencen como un yogur. La ley de propiedad intelectual que sostiene buena parte de la industria del software argentina tiene su origen en la década del 30. La pregunta relevante es qué se quiere hacer con la nueva ley.
+
+Y lo que propone el proyecto es un cambio de modelo. Las leyes de protección de datos ya no son sólo normas de privacidad: son uno de los principales marcos regulatorios que se aplican a las empresas tecnológicas. Nuestra ley vigente, de 2001, sigue la tradición europea. El proyecto se acerca al modelo estadounidense: desde su primer artículo pone la innovación a la par de la privacidad, y hace depender las transferencias internacionales de que el proveedor demuestre capacidad técnica de protección en el destino, dejando de lado la exigencia de una protección jurídica adecuada. Si la transferencia de datos queda todavía más desregulada que hoy, **¿qué incentivo va a quedar para desarrollar infraestructura local?**
+
+También conectamos el proyecto con un movimiento más amplio: acuerdos internacionales en los que la Argentina se compromete a bajar barreras para los negocios de inteligencia artificial, y modelos como el de El Salvador, que firmó un [acuerdo de al menos 500 millones de dólares con Google Cloud](https://www.elsalvadornow.org/2023/10/07/foreign-ministry-places-500-million-deal-with-google-under-confidentiality-cancilleria-declara-en-reserva-el-acuerdo-de-500-millones-con-google) para proveer servicios a sus instituciones. El riesgo es el mismo: un Estado que, ante una sanción o un conflicto político, puede ser desconectado desde afuera.
+
+## Soberanía informática también es poder demandar localmente
+
+No todo son malas noticias. Destacamos dos fallos recientes de la Corte Suprema, [*C., F. c. Facebook Argentina*](https://www.iprofesional.com/legales/465213-la-corte-suprema-fijo-limites-a-los-escraches-anonimos-en-redes-sociales) y [*Quinteros c. Facebook Argentina*](https://www.diariojudicial.com/news-104532-una-fan-page-y-una-fuente-que-no-era-periodistica), que [analizamos en nuestras redes](https://x.com/ODIAasoc/status/2103208481969115505). En nuestra lectura, terminan con el argumento de que las grandes plataformas no responden en el país porque su filial local «sólo vende publicidad». Poder demandar localmente a las empresas tecnológicas también es soberanía informática, en su dimensión jurídica.
+
+Mencionamos además un caso reciente de los Países Bajos, donde el gobierno [prohibió en mayo la venta de Solvinity](https://www.politico.eu/article/netherlands-blocks-us-takeover-vital-digital-supplier/), proveedora de la plataforma de identidad digital DigiD, a la estadounidense Kyndryl, y [ratificó esa decisión en octubre](https://nltimes.nl/2026/10/13/dutch-government-blocks-sale-digid-provider-solvinity-us-company). No había migración de datos: el problema era que un componente crítico del Estado quedaba bajo el control de jueces extranjeros. Hay elementos digitales que, como las calles, son **infraestructura pública** y tienen que protegerse como tal.
+
+## Las leyes son para los jueces
+
+Sobre los organismos de control, planteamos una advertencia: en sectores donde se juegan negocios enormes, las autoridades regulatorias pueden quedar capturadas por las mismas empresas que deben controlar. Por eso nos interesa tanto la vía judicial: el Poder Judicial tiene una superficie mucho más amplia y dispersa, con jueces y juezas en todo el país. Las leyes, en definitiva, las aplican los jueces. La pregunta es cómo hacemos normas que les den herramientas para llevar nuestros derechos a la realidad de las plataformas digitales.
+
+## Pensar en la «tía Pocha»
+
+Cerramos hablando de ciberseguridad y filtraciones de datos. Probablemente nadie en la Ekoparty caiga en un *phishing*, pero todos tenemos una tía, una madre o un abuelo que sí. Cada ataque de ingeniería social se apoya en filtraciones de empresas que protegieron mal los datos, y gran parte de las víctimas está en barrios populares y en sectores vulnerables. Detrás de muchas de esas estafas hay vidas destruidas, préstamos sacados en segundos y cuentas vaciadas.
+
+Hay soluciones que no requieren una ley. ¿Tiene sentido que una aplicación otorgue un préstamo a las tres de la mañana? El Banco Central ya demostró, cuando eliminó las comisiones por transferencias, que una reglamentación sectorial pequeña puede mejorar la vida de muchas personas.
+
+Agradecemos a Gala y a todo el equipo de Lado B y de la Ekoparty por el espacio. Podés ver la [entrevista completa](https://www.youtube.com/watch?v=3Au7ISajxdE&t=22385s) y nuestra [publicación sobre la charla](https://x.com/ODIAasoc/status/2108276317208633540).
