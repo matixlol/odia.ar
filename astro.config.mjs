@@ -22,6 +22,10 @@ export default defineConfig({
 
   build: { inlineStylesheets: "always" },
 
+  server: {
+    allowedHosts: process.env.AMP_ORB ? true : undefined,
+  },
+
   vite: {
     plugins: [tailwindcss()],
     ssr: {

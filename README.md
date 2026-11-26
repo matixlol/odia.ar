@@ -1,46 +1,33 @@
-# Astro Starter Kit: Basics
+# odia.ar
 
-```sh
-pnpm create astro@latest -- --template basics
+Esta es la página web de ODIA, el Observatorio de Derecho Informatico Argentino.
+
+## dev
+
+```
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Administración de archivos
 
-## 🚀 Project Structure
+El panel en `/admin` permite que integrantes del Google Workspace `@odia.ar`
+suban, copien enlaces y eliminen archivos del bucket privado `odia-files` de
+Railway. Los enlaces públicos estables usan `/files/<key>` y redirigen a una URL
+firmada temporal, por lo que las credenciales nunca llegan al navegador.
 
-Inside of your Astro project, you'll see the following folders and files:
+1. El proyecto Railway `odia` y su bucket `odia-files` están creados en la
+   región `iad`. Ejecuta `railway bucket credentials` dentro de este repo para
+   obtener sus seis variables `AWS_*`.
+2. El cliente OAuth 2.0 `odia.ar Admin` está creado en Google Cloud con estos
+   redirect URIs:
+   - `http://localhost:4321/api/auth/callback/google`
+   - `https://odia.ar/api/auth/callback/google`
+3. Las variables del bucket y de Google OAuth están configuradas como secretos
+   de Production en Vercel. Usa `.env.example` como referencia para desarrollo.
+4. El CORS del bucket permite `PUT` desde `https://odia.ar` y
+   `http://localhost:4321`.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+La autorización de subida y borrado se valida en el servidor, incluyendo el
+claim de dominio de Google Workspace. Las cargas y descargas binarias viajan
+directamente entre el navegador y Railway mediante URLs firmadas.

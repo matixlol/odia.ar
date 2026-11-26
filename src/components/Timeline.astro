@@ -1,9 +1,20 @@
 ---
+interface Props {
+  title?: string;
+}
 
+const { title } = Astro.props as Props;
 ---
 
 <section class="w-full not-prose">
-  <ol class="relative ps-6">
+  {
+    title && (
+      <h2 class="text-3xl sm:text-4xl font-semibold font-space-mono mb-6 text-dark-purple">
+        {title}
+      </h2>
+    )
+  }
+  <ol class="relative ps-6 list-none">
     <slot />
   </ol>
 </section>

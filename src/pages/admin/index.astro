@@ -1,0 +1,287 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getSession } from "../../lib/auth";
+import {
+  listFiles,
+  publicFilePath,
+  storageConfigured,
+} from "../../lib/storage";
+
+export const prerender = false;
+
+const session = await getSession(Astro.request);
+if (!session) {
+  return Astro.redirect("/api/auth/signin?callbackUrl=/admin");
+}
+
+let files: Awaited<ReturnType<typeof listFiles>> = [];
+let storageError = "";
+
+try {
+  if (!storageConfigured) throw new Error("Faltan las credenciales del bucket");
+  files = await listFiles();
+} catch (error) {
+  storageError =
+    error instanceof Error ? error.message : "No se pudo conectar con Railway";
+}
+
+const formatter = new Intl.DateTimeFormat("es-AR", {
+  dateStyle: "medium",
+  timeStyle: "short",
+});
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  const units = ["KB", "MB", "GB"];
+  let value = bytes / 1024;
+  let unit = units[0];
+  for (let index = 1; value >= 1024 && index < units.length; index += 1) {
+    value /= 1024;
+    unit = units[index];
+  }
+  return `${value.toLocaleString("es-AR", { maximumFractionDigits: 1 })} ${unit}`;
+}
+
+const wasDeleted = Astro.url.searchParams.get("deleted") === "1";
+
+function fileUrl(key: string) {
+  return new URL(publicFilePath(key), Astro.url.origin).href;
+}
+
+function fileName(key: string) {
+  return (
+    key
+      .split("/")
+      .pop()
+      ?.replace(/^[0-9a-f-]{36}-/i, "") ?? key
+  );
+}
+---
+
+<Layout title="Archivos — Administración ODIA">
+  <main class="admin-shell">
+    <header class="admin-header">
+      <a class="brand" href="/" aria-label="Volver a ODIA">
+        <img src="/static/images/isotipo.png" alt="" width="52" height="52" />
+        <span>ODIA / ARCHIVOS</span>
+      </a>
+      <div class="session">
+        {session.user?.image && (
+          <img src={session.user.image} alt="" width="32" height="32" referrerpolicy="no-referrer" />
+        )}
+        <span>{session.user?.email}</span>
+        <a href="/api/auth/signout?callbackUrl=/">Salir</a>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">ADMINISTRACIÓN</p>
+      <h1>Subir archivos</h1>
+      <p>Los archivos quedan públicos y listos para enlazar desde odia.ar.</p>
+    </section>
+
+    {wasDeleted && <div class="notice success">Archivo eliminado.</div>}
+
+    {storageError ? (
+      <section class="notice error">
+        <strong>Falta conectar Railway Bucket.</strong>
+        <span>Configura en Vercel las seis variables <code>AWS_*</code> del bucket <code>odia-files</code>.</span>
+        <small>{storageError}</small>
+      </section>
+    ) : (
+      <section class="upload-card">
+        <form id="upload-form">
+          <label class="drop-zone" for="file-input">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong>Elegí uno o más archivos</strong>
+            <span>o arrastralos acá · máximo 250 MB por archivo</span>
+            <input id="file-input" name="files" type="file" multiple required />
+          </label>
+          <div id="selection" class="selection" aria-live="polite"></div>
+          <button id="upload-button" type="submit">Subir archivos</button>
+        </form>
+      </section>
+    )}
+
+    <section class="files-section">
+      <div class="section-heading">
+        <h2>Archivos recientes</h2>
+        <span>{files.length} {files.length === 1 ? "archivo" : "archivos"}</span>
+      </div>
+
+      {files.length ? (
+        <div class="file-list">
+          {files.map((file) => (
+            <article class="file-row">
+              <div class="file-mark" aria-hidden="true">
+                {file.Key.split(".").pop()?.slice(0, 4).toUpperCase() || "FILE"}
+              </div>
+              <div class="file-info">
+                <a href={fileUrl(file.Key)} target="_blank" rel="noreferrer">
+                  {fileName(file.Key)}
+                </a>
+                <span>{formatBytes(file.Size ?? 0)} · {file.LastModified ? formatter.format(file.LastModified) : "Sin fecha"}</span>
+              </div>
+              <div class="file-actions">
+                <button class="copy-button" type="button" data-url={fileUrl(file.Key)}>Copiar link</button>
+                <form method="post" action="/api/files/delete" onsubmit="return confirm('¿Eliminar este archivo?')">
+                  <input type="hidden" name="pathname" value={file.Key} />
+                  <button class="delete-button" type="submit" aria-label={`Eliminar ${file.Key}`}>Eliminar</button>
+                </form>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">Todavía no hay archivos subidos.</div>
+      )}
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#upload-form");
+  const input = document.querySelector<HTMLInputElement>("#file-input");
+  const selection = document.querySelector<HTMLDivElement>("#selection");
+  const button = document.querySelector<HTMLButtonElement>("#upload-button");
+
+  function showSelection() {
+    if (!selection || !input) return;
+    const files = Array.from(input.files ?? []);
+    selection.textContent = files.length
+      ? `${files.length} ${files.length === 1 ? "archivo listo" : "archivos listos"}`
+      : "";
+  }
+
+  input?.addEventListener("change", showSelection);
+
+  function uploadFile(
+    url: string,
+    file: File,
+    onProgress: (percentage: number) => void,
+  ) {
+    return new Promise<void>((resolve, reject) => {
+      const request = new XMLHttpRequest();
+      request.open("PUT", url);
+      request.setRequestHeader(
+        "Content-Type",
+        file.type || "application/octet-stream",
+      );
+      request.upload.addEventListener("progress", (event) => {
+        if (event.lengthComputable) {
+          onProgress((event.loaded / event.total) * 100);
+        }
+      });
+      request.addEventListener("load", () => {
+        if (request.status >= 200 && request.status < 300) resolve();
+        else reject(new Error(`Railway rechazó la carga (${request.status})`));
+      });
+      request.addEventListener("error", () => {
+        reject(new Error("No se pudo conectar con Railway Bucket"));
+      });
+      request.send(file);
+    });
+  }
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const files = Array.from(input?.files ?? []);
+    if (!files.length || !button || !selection) return;
+
+    button.disabled = true;
+    try {
+      for (let index = 0; index < files.length; index += 1) {
+        const file = files[index];
+        selection.textContent = `Subiendo ${index + 1} de ${files.length}: ${file.name}…`;
+        const response = await fetch("/api/files/upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            filename: file.name,
+            contentType: file.type || "application/octet-stream",
+            size: file.size,
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok || typeof result.uploadUrl !== "string") {
+          throw new Error(result.error || "No se pudo iniciar la carga");
+        }
+        await uploadFile(result.uploadUrl, file, (percentage) => {
+          selection.textContent = `Subiendo ${index + 1} de ${files.length}: ${file.name} · ${Math.round(percentage)}%`;
+        });
+      }
+      selection.textContent = "Listo. Actualizando la lista…";
+      window.location.reload();
+    } catch (error) {
+      selection.textContent = error instanceof Error ? error.message : "No se pudo completar la carga.";
+      button.disabled = false;
+    }
+  });
+
+  document.querySelectorAll<HTMLButtonElement>(".copy-button").forEach((copyButton) => {
+    copyButton.addEventListener("click", async () => {
+      const url = copyButton.dataset.url;
+      if (!url) return;
+      await navigator.clipboard.writeText(url);
+      const original = copyButton.textContent;
+      copyButton.textContent = "Copiado";
+      window.setTimeout(() => { copyButton.textContent = original; }, 1400);
+    });
+  });
+</script>
+
+<style>
+  :global(body) { background: var(--color-light); color: var(--color-dark); font-family: var(--font-space-mono); }
+  .admin-shell { width: min(1040px, calc(100% - 32px)); margin: 0 auto; min-height: 85vh; padding-bottom: 80px; }
+  .admin-header { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 2px solid var(--color-dark); }
+  .brand, .session, .file-actions { display: flex; align-items: center; }
+  .brand { gap: 12px; color: inherit; font-weight: 700; text-decoration: none; }
+  .brand img, .session img { object-fit: cover; }
+  .session { gap: 12px; font-size: 12px; }
+  .session img { border: 1px solid var(--color-dark); border-radius: 50%; }
+  .session a { color: inherit; }
+  .intro { padding: 72px 0 36px; }
+  .eyebrow { margin: 0 0 8px; color: var(--color-red-highlight); font-size: 13px; font-weight: 700; }
+  h1, h2 { font-family: var(--font-redaction-20); font-weight: 400; }
+  h1 { margin: 0; font-size: clamp(48px, 8vw, 88px); line-height: .9; }
+  .intro > p:last-child { max-width: 600px; margin: 24px 0 0; font-family: var(--font-merriweather); }
+  .upload-card { padding: 16px; background: #fff8ef; border: 2px solid var(--color-dark); box-shadow: var(--shadow-sexy-lg); }
+  .drop-zone { min-height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: 2px dashed var(--color-turquoise-highlight); text-align: center; }
+  .drop-zone:hover { background: #eef6f3; }
+  .upload-icon { font-family: sans-serif; font-size: 48px; line-height: 1; color: var(--color-turquoise-highlight); }
+  .drop-zone span:last-of-type, .selection { color: #635a55; font-size: 12px; }
+  #file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+  .selection { min-height: 18px; margin: 14px 0 8px; }
+  #upload-button, .copy-button, .delete-button { border: 1px solid var(--color-dark); font: inherit; font-size: 12px; cursor: pointer; }
+  #upload-button { width: 100%; padding: 14px; background: var(--color-red-highlight); color: white; font-weight: 700; box-shadow: var(--shadow-sexy); }
+  #upload-button:disabled { opacity: .55; cursor: wait; }
+  .files-section { margin-top: 64px; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; border-bottom: 2px solid var(--color-dark); }
+  .section-heading h2 { margin: 0 0 10px; font-size: 34px; }
+  .section-heading span { margin-bottom: 14px; font-size: 12px; }
+  .file-list { background: #fff8ef; border-inline: 1px solid var(--color-dark); }
+  .file-row { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 16px; border-bottom: 1px solid var(--color-dark); }
+  .file-mark { display: grid; place-items: center; width: 48px; height: 48px; background: var(--color-light-gray); border: 1px solid var(--color-dark); font-size: 10px; font-weight: 700; }
+  .file-info { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .file-info a { overflow: hidden; color: inherit; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+  .file-info span { color: #635a55; font-size: 11px; }
+  .file-actions { gap: 8px; }
+  .copy-button, .delete-button { padding: 8px 10px; background: transparent; }
+  .copy-button:hover { background: var(--color-light-gray); }
+  .delete-button { color: var(--color-red-highlight); border-color: var(--color-red-highlight); }
+  .delete-button:hover { background: var(--color-red-highlight); color: white; }
+  .empty-state { padding: 48px; border: 1px solid var(--color-dark); border-top: 0; text-align: center; }
+  .notice { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; padding: 16px; border: 2px solid var(--color-dark); }
+  .notice.success { background: var(--color-light-gray); }
+  .notice.error { background: #fff8ef; border-color: var(--color-red-highlight); }
+  .notice small { opacity: .65; }
+  @media (max-width: 700px) {
+    .admin-header { align-items: flex-start; flex-direction: column; padding: 18px 0; }
+    .session { width: 100%; }
+    .session span { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+    .intro { padding-top: 48px; }
+    .file-row { grid-template-columns: 44px minmax(0, 1fr); }
+    .file-mark { width: 40px; height: 40px; }
+    .file-actions { grid-column: 2; }
+  }
+</style>

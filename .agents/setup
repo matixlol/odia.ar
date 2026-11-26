@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Activating the repository-pinned pnpm version"
+time corepack enable
+time corepack install
+
+echo "==> Installing dependencies from pnpm-lock.yaml"
+time pnpm install --frozen-lockfile
+
+if [[ ! -f .env ]]; then
+  echo "==> Creating .env from .env.example"
+  cp -- .env.example .env
+fi
+
+echo "==> Orb setup complete"
