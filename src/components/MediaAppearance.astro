@@ -16,6 +16,7 @@ import infobaeIcon from "./logos/infobae.svg";
 import laGacetaIcon from "./logos/la-gaceta.svg";
 import laiaIcon from "./logos/laia.png";
 import palabrasDelDerechoIcon from "./logos/palabrasdelderecho.png";
+import celsIcon from "./logos/cels.png";
 
 type Outlet =
   | "cels"
@@ -70,7 +71,7 @@ if (!outlet) {
 
 const LOGOS: Record<Outlet, { icon: string | ImageMetadata; text?: string }> = {
   cels: {
-    icon: "https://www.google.com/s2/favicons?sz=128&domain=cels.org.ar",
+    icon: celsIcon,
     text: "CELS",
   },
   chequeado: {
