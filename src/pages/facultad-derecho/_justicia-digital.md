@@ -53,3 +53,7 @@ O’Neil fundó ORCAA (O'Neil Risk Consulting & Algorithmic Auditing), una empre
 - **Dinero y criptomonedas**. Historia del dinero: bien de cambio y unidad de cuenta. Contexto de surgimiento del Bitcoin. Concepto, funcionamiento y naturaleza jurídica: ¿derecho real o personal?
 
 - **Algoritmos, machine learning y justicia**. Introducción a machine learning y criterios de fairness. Análisis de casos de daño, opacidad, escala, incentivos y retroalimentación (Cathy O’Neil, Armas de destrucción matemática). Modelos de auditoría algorítmica y evaluación de riesgos.
+
+## Producción del equipo docente
+
+- Tomás Pomar, [«El derecho a confrontar la prueba de cargo ante las nuevas tecnologías de datos. Comentario al fallo State v. Corey Pickett»](https://doi.org/10.64178/z8fbe249), _Revista Pensamiento Penal_, vol. 1, n.º 2, pp. 99–118, julio de 2025. Analiza el precedente de la Corte Suprema de Nueva Jersey sobre la admisibilidad de la evidencia generada por TrueAllele, un software de genotipificación probabilística cuyo código fuente la defensa no pudo auditar, y los riesgos de delegar funciones esenciales del Estado en tecnologías opacas.
